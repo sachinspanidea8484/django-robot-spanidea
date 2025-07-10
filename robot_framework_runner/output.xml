@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-07-07T11:18:38.120613" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests">
+<suite id="s1-s1" name="Interfaces" source="/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/interfaces">
+<suite id="s1-s1-s1" name="Mac Verification" source="/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/interfaces/mac_verification.robot">
+<kw name="Initialize Custom Log File" owner="common_keywords" type="SETUP">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.310288" level="INFO">${now} = 20250707_111838</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.310007" elapsed="0.000314"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-07T11:18:38.310391" elapsed="0.000047"/>
+</return>
+<msg time="2025-07-07T11:18:38.310543" level="INFO">${timestamp} = 20250707_111838</msg>
+<var>${timestamp}</var>
+<arg>%Y%m%d_%H%M%S</arg>
+<status status="PASS" start="2025-07-07T11:18:38.309314" elapsed="0.001250"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.310837" level="INFO">${log_file} = /home/spanidea-lt26/PycharmProjects/robot-framework-automation/resources/keywords/../../logs/custom_log_20250707_111838.log</msg>
+<var>${log_file}</var>
+<arg>${LOG_FOLDER}/custom_log_${timestamp}.log</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.310664" elapsed="0.000198"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.311129" level="INFO">${LOG_FILE} = /home/spanidea-lt26/PycharmProjects/robot-framework-automation/resources/keywords/../../logs/custom_log_20250707_111838.log</msg>
+<arg>${LOG_FILE}</arg>
+<arg>${log_file}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.310972" elapsed="0.000193"/>
+</kw>
+<status status="PASS" start="2025-07-07T11:18:38.309007" elapsed="0.002213"/>
+</kw>
+<test id="s1-s1-s1-t1" name="All LAN Ethernet Ports Must Have Globally Unique MAC Addresses" line="16">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.312319" level="INFO">${now} = 2025-07-07 11:18:38</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.312100" elapsed="0.000243"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-07T11:18:38.312390" elapsed="0.000034"/>
+</return>
+<msg time="2025-07-07T11:18:38.312510" level="INFO">${timestamp} = 2025-07-07 11:18:38</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-07T11:18:38.311923" elapsed="0.000606"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-07T11:18:38.312904" level="INFO" html="true">Appended to file '&lt;a href="file:///home/spanidea-lt26/PycharmProjects/robot-framework-automation/logs/custom_log_20250707_111838.log"&gt;/home/spanidea-lt26/PycharmProjects/robot-framework-automation/logs/custom_log_20250707_111838.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.312608" elapsed="0.000350"/>
+</kw>
+<arg>Starting test: MAC Address Uniqueness</arg>
+<status status="PASS" start="2025-07-07T11:18:38.311683" elapsed="0.001337"/>
+</kw>
+<kw name="Get Devices From JSON" owner="common_keywords">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-07-07T11:18:38.313703" level="INFO">${json} = {'devices': []}</msg>
+<var>${json}</var>
+<arg>${DEVICE_FILE}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.313462" elapsed="0.000267"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-07T11:18:38.313975" level="INFO">${devices} = []</msg>
+<var>${devices}</var>
+<arg>${json}</arg>
+<arg>devices</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.313842" elapsed="0.000153"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Devices: ${devices}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.314076" elapsed="0.000132"/>
+</kw>
+<return>
+<value>${devices}</value>
+<status status="PASS" start="2025-07-07T11:18:38.314252" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-07T11:18:38.314383" level="INFO">${devices} = []</msg>
+<var>${devices}</var>
+<doc>Load the device configurations from the JSON file</doc>
+<status status="PASS" start="2025-07-07T11:18:38.313173" elapsed="0.001232"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Device Credentials" owner="common_keywords">
+<var>${ip}</var>
+<var>${user}</var>
+<var>${pass}</var>
+<arg>${device}</arg>
+<status status="NOT RUN" start="2025-07-07T11:18:38.314702" elapsed="0.000026"/>
+</kw>
+<kw name="Connect To Device" owner="common_keywords">
+<arg>${ip}</arg>
+<arg>${user}</arg>
+<arg>${pass}</arg>
+<status status="NOT RUN" start="2025-07-07T11:18:38.314835" elapsed="0.000034"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Connection successful to ${device['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-07-07T11:18:38.314956" elapsed="0.000020"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Connection successful to ${device['name']}</arg>
+<status status="NOT RUN" start="2025-07-07T11:18:38.315056" elapsed="0.000021"/>
+</kw>
+<kw name="Get MAC Addresses From Device" owner="common_keywords">
+<var>@{macs}</var>
+<status status="NOT RUN" start="2025-07-07T11:18:38.315191" elapsed="0.000020"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>MACs found for ${device['name']}: @{macs}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-07-07T11:18:38.315281" elapsed="0.000018"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>MACs found for ${device['name']}: @{macs}</arg>
+<status status="NOT RUN" start="2025-07-07T11:18:38.315375" elapsed="0.000037"/>
+</kw>
+<kw name="Disconnect From Device" owner="common_keywords">
+<status status="NOT RUN" start="2025-07-07T11:18:38.315504" elapsed="0.000022"/>
+</kw>
+<kw name="Validate MAC Address Uniqueness" owner="common_keywords">
+<arg>@{macs}</arg>
+<status status="NOT RUN" start="2025-07-07T11:18:38.315643" elapsed="0.000021"/>
+</kw>
+<var name="${device}"/>
+<status status="NOT RUN" start="2025-07-07T11:18:38.314594" elapsed="0.001103"/>
+</iter>
+<var>${device}</var>
+<value>@{devices}</value>
+<status status="NOT RUN" start="2025-07-07T11:18:38.314462" elapsed="0.001268"/>
+</for>
+<tag>BB-TRF-BRG-002</tag>
+<tag>mac</tag>
+<tag>regression</tag>
+<status status="PASS" start="2025-07-07T11:18:38.311282" elapsed="0.004571"/>
+</test>
+<status status="PASS" start="2025-07-07T11:18:38.136339" elapsed="0.179857"/>
+</suite>
+<status status="PASS" start="2025-07-07T11:18:38.135506" elapsed="0.181119"/>
+</suite>
+<suite id="s1-s2" name="Networking" source="/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking">
+<suite id="s1-s2-s1" name="Network" source="/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/network.robot">
+<kw name="Initialize Custom Log File" owner="common_keywords" type="SETUP">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.322251" level="INFO">${now} = 20250707_111838</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.321987" elapsed="0.000312"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-07T11:18:38.322357" elapsed="0.000037"/>
+</return>
+<msg time="2025-07-07T11:18:38.322489" level="INFO">${timestamp} = 20250707_111838</msg>
+<var>${timestamp}</var>
+<arg>%Y%m%d_%H%M%S</arg>
+<status status="PASS" start="2025-07-07T11:18:38.321777" elapsed="0.000733"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.322739" level="INFO">${log_file} = /home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/../../logs/custom_log_20250707_111838.log</msg>
+<var>${log_file}</var>
+<arg>${LOG_FOLDER}/custom_log_${timestamp}.log</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.322600" elapsed="0.000181"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.323027" level="INFO">${LOG_FILE} = /home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/../../logs/custom_log_20250707_111838.log</msg>
+<arg>${LOG_FILE}</arg>
+<arg>${log_file}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.322880" elapsed="0.000182"/>
+</kw>
+<status status="PASS" start="2025-07-07T11:18:38.321569" elapsed="0.001546"/>
+</kw>
+<test id="s1-s2-s1-t1" name="BB-TRF-BRG-002 Ethernet Bridging - Verify Device Connectivity For All Device" line="24">
+<kw name="Pass Execution" owner="BuiltIn">
+<msg time="2025-07-07T11:18:38.323590" level="INFO">Execution passed with message:
+message</msg>
+<arg>message</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2025-07-07T11:18:38.323500" elapsed="0.000143">message</status>
+</kw>
+<tag>BB-TRF-BRG-002</tag>
+<status status="PASS" start="2025-07-07T11:18:38.323168" elapsed="0.000578">message</status>
+</test>
+<status status="PASS" start="2025-07-07T11:18:38.317727" elapsed="0.006262"/>
+</suite>
+<status status="PASS" start="2025-07-07T11:18:38.316870" elapsed="0.007488"/>
+</suite>
+<status status="PASS" start="2025-07-07T11:18:38.121473" elapsed="0.203171"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">BB-TRF-BRG-002</stat>
+<stat pass="1" fail="0" skip="0">mac</stat>
+<stat pass="1" fail="0" skip="0">regression</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="2" fail="0" skip="0">Tests</stat>
+<stat name="Interfaces" id="s1-s1" pass="1" fail="0" skip="0">Tests.Interfaces</stat>
+<stat name="Mac Verification" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Interfaces.Mac Verification</stat>
+<stat name="Networking" id="s1-s2" pass="1" fail="0" skip="0">Tests.Networking</stat>
+<stat name="Network" id="s1-s2-s1" pass="1" fail="0" skip="0">Tests.Networking.Network</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-07T11:18:38.105738" level="WARN">Error in file '/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/interfaces/mac_networking_dynamic.robot' on line 40: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-07-07T11:18:38.105884" level="WARN">Error in file '/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/interfaces/mac_networking_dynamic.robot' on line 45: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-07-07T11:18:38.105960" level="WARN">Error in file '/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/interfaces/mac_networking_dynamic.robot' on line 50: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-07-07T11:18:38.119138" level="ERROR">Error in file '/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/testing_iperf_parallel_multithreaded.robot' on line 216: Creating keyword 'Run Parallel Iperf3 Tests With Resource Logging' failed: Keyword with same name defined multiple times.</msg>
+</errors>
+</robot>
