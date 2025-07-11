@@ -125,7 +125,7 @@ class RunRobotTests(APIView):
             
             # 2. Write device configuration
             print(f"  Writing device configuration...")
-            write_devices_to_json(devices, ROBOT_FRAMEWORK_PATH)
+            # write_devices_to_json(devices, ROBOT_FRAMEWORK_PATH)
             
             # 3. Prepare Robot Framework execution
             tests_path = os.path.abspath(os.path.join(ROBOT_FRAMEWORK_PATH, "tests"))
@@ -133,6 +133,7 @@ class RunRobotTests(APIView):
             os.makedirs(output_dir, exist_ok=True)
             
             # 4. Run Robot Framework command
+            # robot --include BB-TRF-BRG-001 tests/
             cmd = [
                 'robot',
                 '--include', test_case_id,
@@ -143,14 +144,14 @@ class RunRobotTests(APIView):
                 tests_path
             ]
             
-            # print(f"  Running command: {' '.join(cmd)}")
+            print(f"  Running command: {' '.join(cmd)}")
             
             # Execute Robot Framework
             result = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=300000000  # 5 minute timeout
+                # timeout=300000000  # 5 minute timeout
             )
             
             # 5. Process results
