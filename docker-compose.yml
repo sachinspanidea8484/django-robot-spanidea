@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  robot-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: robot-framework-runner
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount Django project for hot reload
+      - ./robot_framework_runner:/app/robot_framework_runner
+      # Mount Robot Framework automation code
+      - ./robot-framework-automation:/app/robot-framework-automation
+      # Persist Robot Framework outputs
+      - ./outputs:/app/outputs
+      # Mount requirements for easy updates
+      - ./requirements.txt:/app/requirements.txt
+    environment:
+      - DEBUG=True
+      - PYTHONUNBUFFERED=1
+      - ROBOT_FRAMEWORK_PATH=/app/robot-framework-automation
+      - DJANGO_SETTINGS_MODULE=robot_framework_runner.settings
+    networks:
+      - robot-network
+    command: python manage.py runserver 0.0.0.0:8080
+
+networks:
+  robot-network:
+    driver: bridge
+
+volumes:
+  outputs:
+    driver: local
