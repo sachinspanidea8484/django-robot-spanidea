@@ -1,0 +1,4 @@
+{
+  "mac_verification": "ip link show | grep ether",
+  "interface_status": "ip addr show"
+}

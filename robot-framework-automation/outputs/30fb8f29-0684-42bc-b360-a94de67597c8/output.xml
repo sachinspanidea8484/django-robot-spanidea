@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.13 on linux)" generated="2025-07-11T11:26:46.469345" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/app/robot-framework-automation/tests">
+<suite id="s1-s1" name="Wifi" source="/app/robot-framework-automation/tests/wifi">
+<suite id="s1-s1-s1" name="TS-001" source="/app/robot-framework-automation/tests/wifi/TS-001">
+<suite id="s1-s1-s1-s1" name="TC-001" source="/app/robot-framework-automation/tests/wifi/TS-001/TC-001.robot">
+<test id="s1-s1-s1-s1-t1" name="Full Ethernet Bridging and Performance Test" line="19">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-07-11T11:26:46.978761" level="INFO">${config} = {'devices': {'openwrt': {'ip': '10.10.10.23', 'username': 'root', 'password': 'root'}, 'PC1': {'ip': '10.10.10.11', 'username': 'osboxes', 'password': 'system@123'}, 'PC2': {'ip': '10.10.10.12', 'user...</msg>
+<var>${config}</var>
+<arg>${CONFIG_FILE}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.978476" elapsed="0.000319"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-11T11:26:46.979064" level="INFO">${devices} = {'openwrt': {'ip': '10.10.10.23', 'username': 'root', 'password': 'root'}, 'PC1': {'ip': '10.10.10.11', 'username': 'osboxes', 'password': 'system@123'}, 'PC2': {'ip': '10.10.10.12', 'username': 'osbo...</msg>
+<var>${devices}</var>
+<arg>${config}</arg>
+<arg>devices</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.978922" elapsed="0.000163"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-11T11:26:46.979303" level="INFO">${BB} = {'ip': '10.10.10.23', 'username': 'root', 'password': 'root'}</msg>
+<var>${BB}</var>
+<arg>${devices}</arg>
+<arg>openwrt</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.979183" elapsed="0.000140"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-11T11:26:46.979522" level="INFO">${PC1} = {'ip': '10.10.10.11', 'username': 'osboxes', 'password': 'system@123'}</msg>
+<var>${PC1}</var>
+<arg>${devices}</arg>
+<arg>PC1</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.979411" elapsed="0.000130"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-11T11:26:46.979744" level="INFO">${PC2} = {'ip': '10.10.10.12', 'username': 'osboxes', 'password': 'system@123'}</msg>
+<var>${PC2}</var>
+<arg>${devices}</arg>
+<arg>PC2</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.979624" elapsed="0.000139"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-11T11:26:46.979950" level="INFO">${PC3} = {'ip': '10.10.10.13', 'username': 'osboxes', 'password': 'system@123'}</msg>
+<var>${PC3}</var>
+<arg>${devices}</arg>
+<arg>PC3</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.979842" elapsed="0.000127"/>
+</kw>
+<kw name="Initialize Custom Log File">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-07-11T11:26:46.980422" level="INFO" html="true">Directory '&lt;a href="file:///app/robot-framework-automation/logs"&gt;/app/robot-framework-automation/logs&lt;/a&gt;' already exists.</msg>
+<arg>${LOG_FOLDER}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.980312" elapsed="0.000147"/>
+</kw>
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:26:46.981385" level="INFO">${now} = 20250711_112646</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.980758" elapsed="0.000654"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:26:46.981468" elapsed="0.000047"/>
+</return>
+<msg time="2025-07-11T11:26:46.981631" level="INFO">${timestamp} = 20250711_112646</msg>
+<var>${timestamp}</var>
+<arg>%Y%m%d_%H%M%S</arg>
+<status status="PASS" start="2025-07-11T11:26:46.980568" elapsed="0.001090"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-11T11:26:46.981889" level="INFO">${custom_log} = /app/robot-framework-automation/tests/wifi/TS-001/../../../logs/custom_log_20250711_112646.log</msg>
+<var>${custom_log}</var>
+<arg>${LOG_FOLDER}/custom_log_${timestamp}.log</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.981757" elapsed="0.000150"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-11T11:26:46.982224" level="INFO">${custom_log} = /app/robot-framework-automation/tests/wifi/TS-001/../../../logs/custom_log_20250711_112646.log</msg>
+<arg>${custom_log}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.981993" elapsed="0.000266"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[${timestamp}] Custom log file initialized: ${custom_log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.982334" elapsed="0.000123"/>
+</kw>
+<kw name="Set Log File Path" owner="final">
+<msg time="2025-07-11T11:26:46.982803" level="INFO">[2025-07-11 11:26:46] Custom log file set to: /app/robot-framework-automation/tests/wifi/TS-001/../../../logs/custom_log_20250711_112646.log</msg>
+<arg>${custom_log}</arg>
+<status status="PASS" start="2025-07-11T11:26:46.982526" elapsed="0.000328"/>
+</kw>
+<status status="PASS" start="2025-07-11T11:26:46.980114" elapsed="0.002807"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:46.983192" level="INFO">[2025-07-11 11:26:46] ==== Starting Full Ethernet Bridging and Performance Test ====</msg>
+<arg>==== Starting Full Ethernet Bridging and Performance Test ====</arg>
+<status status="PASS" start="2025-07-11T11:26:46.983024" elapsed="0.000206"/>
+</kw>
+<kw name="Verify PC to PC Connectivity">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:26:46.984320" level="INFO">${now} = 2025-07-11 11:26:46</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.983942" elapsed="0.000408"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:26:46.984434" elapsed="0.000099"/>
+</return>
+<msg time="2025-07-11T11:26:46.984812" level="INFO">${time} = 2025-07-11 11:26:46</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:26:46.983776" elapsed="0.001072"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:26:46.984928" elapsed="0.000036"/>
+</return>
+<msg time="2025-07-11T11:26:46.985071" level="INFO">${ts} = 2025-07-11 11:26:46</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:26:46.983615" elapsed="0.001480"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:46.985648" level="INFO">[2025-07-11 11:26:46] [2025-07-11 11:26:46] ==== Verifying Ping Connectivity Among PCs ====</msg>
+<arg>[${ts}] ==== Verifying Ping Connectivity Among PCs ====</arg>
+<status status="PASS" start="2025-07-11T11:26:46.985238" elapsed="0.000479"/>
+</kw>
+<kw name="Check Ping">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:26:46.987888" level="INFO">${now} = 2025-07-11 11:26:46</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.987584" elapsed="0.000398"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:26:46.988058" elapsed="0.000070"/>
+</return>
+<msg time="2025-07-11T11:26:46.988284" level="INFO">${time} = 2025-07-11 11:26:46</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:26:46.987305" elapsed="0.001004"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:26:46.988355" elapsed="0.000028"/>
+</return>
+<msg time="2025-07-11T11:26:46.988474" level="INFO">${ts} = 2025-07-11 11:26:46</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:26:46.987062" elapsed="0.001438"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:46.989590" level="INFO">[2025-07-11 11:26:46] [2025-07-11 11:26:46] --&gt; 10.10.10.11 pinging 10.10.10.12</msg>
+<arg>[${ts}] --&gt; ${SOURCE_DEVICE['ip']} pinging ${TARGET_IP}</arg>
+<status status="PASS" start="2025-07-11T11:26:46.988703" elapsed="0.000939"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SOURCE_DEVICE['ip']}</arg>
+<arg>timeout=1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.989768" elapsed="0.000517"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:46.991212" level="INFO">Logging into '10.10.10.11:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:26:48.288832" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:05:08 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${SOURCE_DEVICE['username']}</arg>
+<arg>${SOURCE_DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:26:46.990431" elapsed="1.298520"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:48.289267" level="INFO">Executing command 'ping -c 3 10.10.10.12'.</msg>
+<msg time="2025-07-11T11:26:50.344641" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:26:50.344780" level="INFO">${ping_output} = PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=0.324 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=0.551 ms
+64 bytes from 10.10.10.12: ic...</msg>
+<var>${ping_output}</var>
+<arg>ping -c 3 ${TARGET_IP}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:26:48.289114" elapsed="2.055687"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:50.345455" level="INFO">[2025-07-11 11:26:50] [2025-07-11 11:26:46] [10.10.10.11] Ping Output:
+PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=0.324 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=0.551 ms
+64 bytes from 10.10.10.12: icmp_seq=3 ttl=64 time=0.485 ms
+
+--- 10.10.10.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2045ms
+rtt min/avg/max/mdev = 0.324/0.453/0.551/0.095 ms</msg>
+<arg>[${ts}] [${SOURCE_DEVICE['ip']}] Ping Output:\n${ping_output}</arg>
+<status status="PASS" start="2025-07-11T11:26:50.344943" elapsed="0.000561"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:26:50.346097" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] [${SOURCE_DEVICE['ip']}] Ping to ${TARGET_IP}:\n${ping_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:26:50.345643" elapsed="0.000497"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<arg>0% packet loss</arg>
+<arg>msg=Ping from ${SOURCE_DEVICE['ip']} to ${TARGET_IP} FAILED!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-11T11:26:50.346232" elapsed="0.000372"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:26:50.346690" elapsed="0.000253"/>
+</kw>
+<arg>${PC1}</arg>
+<arg>${PC2['ip']}</arg>
+<status status="PASS" start="2025-07-11T11:26:46.985977" elapsed="3.361028"/>
+</kw>
+<kw name="Check Ping">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:26:50.348150" level="INFO">${now} = 2025-07-11 11:26:50</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:26:50.347891" elapsed="0.000291"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:26:50.348243" elapsed="0.000053"/>
+</return>
+<msg time="2025-07-11T11:26:50.348412" level="INFO">${time} = 2025-07-11 11:26:50</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:26:50.347738" elapsed="0.000697"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:26:50.348483" elapsed="0.000033"/>
+</return>
+<msg time="2025-07-11T11:26:50.348628" level="INFO">${ts} = 2025-07-11 11:26:50</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:26:50.347593" elapsed="0.001060"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:50.349413" level="INFO">[2025-07-11 11:26:50] [2025-07-11 11:26:50] --&gt; 10.10.10.11 pinging 10.10.10.13</msg>
+<arg>[${ts}] --&gt; ${SOURCE_DEVICE['ip']} pinging ${TARGET_IP}</arg>
+<status status="PASS" start="2025-07-11T11:26:50.348755" elapsed="0.000720"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SOURCE_DEVICE['ip']}</arg>
+<arg>timeout=1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:26:50.349611" elapsed="0.000534"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:50.350966" level="INFO">Logging into '10.10.10.11:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:26:51.619182" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:26:46 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${SOURCE_DEVICE['username']}</arg>
+<arg>${SOURCE_DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:26:50.350277" elapsed="1.269021"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:51.619638" level="INFO">Executing command 'ping -c 3 10.10.10.13'.</msg>
+<msg time="2025-07-11T11:26:53.675814" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:26:53.676107" level="INFO">${ping_output} = PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.410 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=0.545 ms
+64 bytes from 10.10.10.13: ic...</msg>
+<var>${ping_output}</var>
+<arg>ping -c 3 ${TARGET_IP}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:26:51.619466" elapsed="2.056677"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:53.677101" level="INFO">[2025-07-11 11:26:53] [2025-07-11 11:26:50] [10.10.10.11] Ping Output:
+PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.410 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=0.545 ms
+64 bytes from 10.10.10.13: icmp_seq=3 ttl=64 time=0.456 ms
+
+--- 10.10.10.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2045ms
+rtt min/avg/max/mdev = 0.410/0.470/0.545/0.056 ms</msg>
+<arg>[${ts}] [${SOURCE_DEVICE['ip']}] Ping Output:\n${ping_output}</arg>
+<status status="PASS" start="2025-07-11T11:26:53.676368" elapsed="0.000797"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:26:53.677898" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] [${SOURCE_DEVICE['ip']}] Ping to ${TARGET_IP}:\n${ping_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:26:53.677326" elapsed="0.000648"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<arg>0% packet loss</arg>
+<arg>msg=Ping from ${SOURCE_DEVICE['ip']} to ${TARGET_IP} FAILED!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-11T11:26:53.678118" elapsed="0.000524"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:26:53.678772" elapsed="0.000342"/>
+</kw>
+<arg>${PC1}</arg>
+<arg>${PC3['ip']}</arg>
+<status status="PASS" start="2025-07-11T11:26:50.347145" elapsed="3.332046"/>
+</kw>
+<kw name="Check Ping">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:26:53.681005" level="INFO">${now} = 2025-07-11 11:26:53</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:26:53.680516" elapsed="0.000524"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:26:53.681115" elapsed="0.000067"/>
+</return>
+<msg time="2025-07-11T11:26:53.681303" level="INFO">${time} = 2025-07-11 11:26:53</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:26:53.680288" elapsed="0.001041"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:26:53.681380" elapsed="0.000031"/>
+</return>
+<msg time="2025-07-11T11:26:53.681514" level="INFO">${ts} = 2025-07-11 11:26:53</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:26:53.680063" elapsed="0.001476"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:53.682350" level="INFO">[2025-07-11 11:26:53] [2025-07-11 11:26:53] --&gt; 10.10.10.12 pinging 10.10.10.11</msg>
+<arg>[${ts}] --&gt; ${SOURCE_DEVICE['ip']} pinging ${TARGET_IP}</arg>
+<status status="PASS" start="2025-07-11T11:26:53.681653" elapsed="0.000756"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SOURCE_DEVICE['ip']}</arg>
+<arg>timeout=1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:26:53.682545" elapsed="0.000534"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:53.683920" level="INFO">Logging into '10.10.10.12:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:26:55.055665" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:05:09 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${SOURCE_DEVICE['username']}</arg>
+<arg>${SOURCE_DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:26:53.683204" elapsed="1.372581"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:55.056118" level="INFO">Executing command 'ping -c 3 10.10.10.11'.</msg>
+<msg time="2025-07-11T11:26:57.109254" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:26:57.109398" level="INFO">${ping_output} = PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.437 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.480 ms
+64 bytes from 10.10.10.11: ic...</msg>
+<var>${ping_output}</var>
+<arg>ping -c 3 ${TARGET_IP}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:26:55.055953" elapsed="2.053466"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:57.110085" level="INFO">[2025-07-11 11:26:57] [2025-07-11 11:26:53] [10.10.10.12] Ping Output:
+PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.437 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.480 ms
+64 bytes from 10.10.10.11: icmp_seq=3 ttl=64 time=0.646 ms
+
+--- 10.10.10.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2039ms
+rtt min/avg/max/mdev = 0.437/0.521/0.646/0.090 ms</msg>
+<arg>[${ts}] [${SOURCE_DEVICE['ip']}] Ping Output:\n${ping_output}</arg>
+<status status="PASS" start="2025-07-11T11:26:57.109567" elapsed="0.000585"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:26:57.110728" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] [${SOURCE_DEVICE['ip']}] Ping to ${TARGET_IP}:\n${ping_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:26:57.110291" elapsed="0.000494"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<arg>0% packet loss</arg>
+<arg>msg=Ping from ${SOURCE_DEVICE['ip']} to ${TARGET_IP} FAILED!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-11T11:26:57.110904" elapsed="0.000340"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:26:57.111330" elapsed="0.000254"/>
+</kw>
+<arg>${PC2}</arg>
+<arg>${PC1['ip']}</arg>
+<status status="PASS" start="2025-07-11T11:26:53.679374" elapsed="3.432271"/>
+</kw>
+<kw name="Check Ping">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:26:57.112938" level="INFO">${now} = 2025-07-11 11:26:57</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:26:57.112730" elapsed="0.000231"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:26:57.113142" elapsed="0.000056"/>
+</return>
+<msg time="2025-07-11T11:26:57.113289" level="INFO">${time} = 2025-07-11 11:26:57</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:26:57.112384" elapsed="0.000923"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:26:57.113341" elapsed="0.000022"/>
+</return>
+<msg time="2025-07-11T11:26:57.113432" level="INFO">${ts} = 2025-07-11 11:26:57</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:26:57.112241" elapsed="0.001208"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:26:57.113942" level="INFO">[2025-07-11 11:26:57] [2025-07-11 11:26:57] --&gt; 10.10.10.12 pinging 10.10.10.13</msg>
+<arg>[${ts}] --&gt; ${SOURCE_DEVICE['ip']} pinging ${TARGET_IP}</arg>
+<status status="PASS" start="2025-07-11T11:26:57.113525" elapsed="0.000470"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SOURCE_DEVICE['ip']}</arg>
+<arg>timeout=1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:26:57.114115" elapsed="0.000354"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:57.114998" level="INFO">Logging into '10.10.10.12:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:26:58.479536" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:26:53 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${SOURCE_DEVICE['username']}</arg>
+<arg>${SOURCE_DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:26:57.114556" elapsed="1.365097"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:26:58.480535" level="INFO">Executing command 'ping -c 3 10.10.10.13'.</msg>
+<msg time="2025-07-11T11:27:00.533769" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:00.533917" level="INFO">${ping_output} = PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.264 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=0.406 ms
+64 bytes from 10.10.10.13: ic...</msg>
+<var>${ping_output}</var>
+<arg>ping -c 3 ${TARGET_IP}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:26:58.480368" elapsed="2.053570"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:00.534559" level="INFO">[2025-07-11 11:27:00] [2025-07-11 11:26:57] [10.10.10.12] Ping Output:
+PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.264 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=0.406 ms
+64 bytes from 10.10.10.13: icmp_seq=3 ttl=64 time=0.633 ms
+
+--- 10.10.10.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2039ms
+rtt min/avg/max/mdev = 0.264/0.434/0.633/0.151 ms</msg>
+<arg>[${ts}] [${SOURCE_DEVICE['ip']}] Ping Output:\n${ping_output}</arg>
+<status status="PASS" start="2025-07-11T11:27:00.534093" elapsed="0.000542"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:00.535268" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] [${SOURCE_DEVICE['ip']}] Ping to ${TARGET_IP}:\n${ping_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:00.534777" elapsed="0.000554"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<arg>0% packet loss</arg>
+<arg>msg=Ping from ${SOURCE_DEVICE['ip']} to ${TARGET_IP} FAILED!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-11T11:27:00.535453" elapsed="0.000359"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:00.535901" elapsed="0.000210"/>
+</kw>
+<arg>${PC2}</arg>
+<arg>${PC3['ip']}</arg>
+<status status="PASS" start="2025-07-11T11:26:57.111779" elapsed="3.424383"/>
+</kw>
+<kw name="Check Ping">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:00.537198" level="INFO">${now} = 2025-07-11 11:27:00</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:00.537017" elapsed="0.000201"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:00.537260" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-11T11:27:00.537371" level="INFO">${time} = 2025-07-11 11:27:00</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:00.536873" elapsed="0.000516"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:00.537421" elapsed="0.000020"/>
+</return>
+<msg time="2025-07-11T11:27:00.537512" level="INFO">${ts} = 2025-07-11 11:27:00</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:00.536727" elapsed="0.000801"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:00.537936" level="INFO">[2025-07-11 11:27:00] [2025-07-11 11:27:00] --&gt; 10.10.10.13 pinging 10.10.10.11</msg>
+<arg>[${ts}] --&gt; ${SOURCE_DEVICE['ip']} pinging ${TARGET_IP}</arg>
+<status status="PASS" start="2025-07-11T11:27:00.537594" elapsed="0.000391"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SOURCE_DEVICE['ip']}</arg>
+<arg>timeout=1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:00.538094" elapsed="0.000477"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:00.539438" level="INFO">Logging into '10.10.10.13:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:27:01.731993" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:05:11 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${SOURCE_DEVICE['username']}</arg>
+<arg>${SOURCE_DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:00.538704" elapsed="1.193409"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:01.732435" level="INFO">Executing command 'ping -c 3 10.10.10.11'.</msg>
+<msg time="2025-07-11T11:27:03.776264" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:03.776517" level="INFO">${ping_output} = PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.316 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.503 ms
+64 bytes from 10.10.10.11: ic...</msg>
+<var>${ping_output}</var>
+<arg>ping -c 3 ${TARGET_IP}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:01.732280" elapsed="2.044368"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:03.777787" level="INFO">[2025-07-11 11:27:03] [2025-07-11 11:27:00] [10.10.10.13] Ping Output:
+PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.316 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.503 ms
+64 bytes from 10.10.10.11: icmp_seq=3 ttl=64 time=0.608 ms
+
+--- 10.10.10.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2029ms
+rtt min/avg/max/mdev = 0.316/0.475/0.608/0.120 ms</msg>
+<arg>[${ts}] [${SOURCE_DEVICE['ip']}] Ping Output:\n${ping_output}</arg>
+<status status="PASS" start="2025-07-11T11:27:03.776909" elapsed="0.000969"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:03.778831" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] [${SOURCE_DEVICE['ip']}] Ping to ${TARGET_IP}:\n${ping_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:03.778078" elapsed="0.000829"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<arg>0% packet loss</arg>
+<arg>msg=Ping from ${SOURCE_DEVICE['ip']} to ${TARGET_IP} FAILED!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-11T11:27:03.779084" elapsed="0.000625"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:03.779882" elapsed="0.000451"/>
+</kw>
+<arg>${PC3}</arg>
+<arg>${PC1['ip']}</arg>
+<status status="PASS" start="2025-07-11T11:27:00.536278" elapsed="3.244148"/>
+</kw>
+<kw name="Check Ping">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:03.782321" level="INFO">${now} = 2025-07-11 11:27:03</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:03.781995" elapsed="0.000364"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:03.782445" elapsed="0.000064"/>
+</return>
+<msg time="2025-07-11T11:27:03.782650" level="INFO">${time} = 2025-07-11 11:27:03</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:03.781742" elapsed="0.000944"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:03.782753" elapsed="0.000051"/>
+</return>
+<msg time="2025-07-11T11:27:03.782931" level="INFO">${ts} = 2025-07-11 11:27:03</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:03.781514" elapsed="0.001445"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:03.784393" level="INFO">[2025-07-11 11:27:03] [2025-07-11 11:27:03] --&gt; 10.10.10.13 pinging 10.10.10.12</msg>
+<arg>[${ts}] --&gt; ${SOURCE_DEVICE['ip']} pinging ${TARGET_IP}</arg>
+<status status="PASS" start="2025-07-11T11:27:03.783224" elapsed="0.001244"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${SOURCE_DEVICE['ip']}</arg>
+<arg>timeout=1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:03.784671" elapsed="0.000449"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:03.785680" level="INFO">Logging into '10.10.10.13:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:27:04.991014" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:27:00 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${SOURCE_DEVICE['username']}</arg>
+<arg>${SOURCE_DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:03.785217" elapsed="1.205920"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:04.991517" level="INFO">Executing command 'ping -c 3 10.10.10.12'.</msg>
+<msg time="2025-07-11T11:27:07.035243" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:07.035423" level="INFO">${ping_output} = PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=0.281 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=0.463 ms
+64 bytes from 10.10.10.12: ic...</msg>
+<var>${ping_output}</var>
+<arg>ping -c 3 ${TARGET_IP}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:04.991323" elapsed="2.044127"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:07.036409" level="INFO">[2025-07-11 11:27:07] [2025-07-11 11:27:03] [10.10.10.13] Ping Output:
+PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=0.281 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=0.463 ms
+64 bytes from 10.10.10.12: icmp_seq=3 ttl=64 time=0.557 ms
+
+--- 10.10.10.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2034ms
+rtt min/avg/max/mdev = 0.281/0.433/0.557/0.114 ms</msg>
+<arg>[${ts}] [${SOURCE_DEVICE['ip']}] Ping Output:\n${ping_output}</arg>
+<status status="PASS" start="2025-07-11T11:27:07.035630" elapsed="0.000853"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:07.037211" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] [${SOURCE_DEVICE['ip']}] Ping to ${TARGET_IP}:\n${ping_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:07.036673" elapsed="0.000609"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_output}</arg>
+<arg>0% packet loss</arg>
+<arg>msg=Ping from ${SOURCE_DEVICE['ip']} to ${TARGET_IP} FAILED!</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-11T11:27:07.037422" elapsed="0.000399"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:07.037913" elapsed="0.000282"/>
+</kw>
+<arg>${PC3}</arg>
+<arg>${PC2['ip']}</arg>
+<status status="PASS" start="2025-07-11T11:27:03.780648" elapsed="3.257620"/>
+</kw>
+<arg>${PC1}</arg>
+<arg>${PC2}</arg>
+<arg>${PC3}</arg>
+<status status="PASS" start="2025-07-11T11:26:46.983360" elapsed="20.054955"/>
+</kw>
+<kw name="Capture Baseline System Stats">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${BB_IP}</arg>
+<arg>timeout=15s</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:07.039320" elapsed="0.000234"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:07.039780" level="INFO">Logging into '10.10.10.23:22' as 'root'.</msg>
+<msg time="2025-07-11T11:27:08.140607" level="INFO">Read output: 
+
+BusyBox v1.36.1 (2025-07-06 15:35:16 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 24.10-SNAPSHOT, 1-0-0-49-2025-07-07-02-10-28
+ -----------------------------------------------------
+root@0C-86-EE-F0-00-01:~#</msg>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:07.039648" elapsed="1.101153"/>
+</kw>
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:08.141642" level="INFO">${now} = 2025-07-11 11:27:08</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:08.141423" elapsed="0.000242"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:08.141710" elapsed="0.000037"/>
+</return>
+<msg time="2025-07-11T11:27:08.141829" level="INFO">${time} = 2025-07-11 11:27:08</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:08.141222" elapsed="0.000624"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:08.141880" elapsed="0.000021"/>
+</return>
+<msg time="2025-07-11T11:27:08.141975" level="INFO">${ts} = 2025-07-11 11:27:08</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:08.141004" elapsed="0.000988"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:08.142253" level="INFO">[2025-07-11 11:27:08] [2025-07-11 11:27:08] ==== Capturing Baseline CPU, Memory, Interrupts ====</msg>
+<arg>[${ts}] ==== Capturing Baseline CPU, Memory, Interrupts ====</arg>
+<status status="PASS" start="2025-07-11T11:27:08.142065" elapsed="0.000222"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:08.142450" level="INFO">Executing command 'sar -u 1 1'.</msg>
+<msg time="2025-07-11T11:27:09.153759" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:09.153920" level="INFO">${cpu_output} = Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:27:06        CPU     %user     %nice   %system   %iowait    %steal     %idle
+11:27:07        all      2.00      0.00      1.00      0.0...</msg>
+<var>${cpu_output}</var>
+<arg>sar -u 1 1</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:08.142377" elapsed="1.011568"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:09.154202" level="INFO">Executing command 'sar -r 1 1'.</msg>
+<msg time="2025-07-11T11:27:10.206041" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:10.206234" level="INFO">${mem_output} = Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:27:07    kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+11:27:08        ...</msg>
+<var>${mem_output}</var>
+<arg>sar -r 1 1</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:09.154093" elapsed="1.052170"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:10.206659" level="INFO">Executing command 'cat /proc/interrupts'.</msg>
+<msg time="2025-07-11T11:27:10.254515" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:10.254703" level="INFO">${intr_output} =            CPU0       
+  0:         17   IO-APIC   2-edge      timer
+  1:          9   IO-APIC   1-edge      i8042
+  4:       2015   IO-APIC   4-edge      ttyS0
+  8:          1   IO-APIC   8-edge     ...</msg>
+<var>${intr_output}</var>
+<arg>cat /proc/interrupts</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.206487" elapsed="0.048242"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:10.255380" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] ===== Baseline CPU Stats =====\n${cpu_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.254939" elapsed="0.000509"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:10.255904" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] ===== Baseline Memory Stats =====\n${mem_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.255627" elapsed="0.000325"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:10.256311" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] ===== Baseline Interrupt Stats =====\n${intr_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.256054" elapsed="0.000301"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.256463" elapsed="0.000287"/>
+</kw>
+<arg>${BB['ip']}</arg>
+<arg>${BB['username']}</arg>
+<arg>${BB['password']}</arg>
+<status status="PASS" start="2025-07-11T11:27:07.038477" elapsed="3.218339"/>
+</kw>
+<kw name="Ensure Iperf3 Installed On Device">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${DEVICE['ip']}</arg>
+<arg>timeout=2s</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.257235" elapsed="0.000520"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:10.258443" level="INFO">Logging into '10.10.10.11:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:27:11.447485" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:26:50 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${DEVICE['username']}</arg>
+<arg>${DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:10.257867" elapsed="1.189766"/>
+</kw>
+<kw name="Ensure Iperf3 Installed">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:11.448862" level="INFO">${now} = 2025-07-11 11:27:11</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.448611" elapsed="0.000276"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:11.448930" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-11T11:27:11.449056" level="INFO">${time} = 2025-07-11 11:27:11</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:11.448402" elapsed="0.000671"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:11.449107" elapsed="0.000023"/>
+</return>
+<msg time="2025-07-11T11:27:11.449194" level="INFO">${ts} = 2025-07-11 11:27:11</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:11.448231" elapsed="0.001033"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:11.449518" level="INFO">Executing command 'which iperf3 || echo "NOT_FOUND"'.</msg>
+<msg time="2025-07-11T11:27:11.461907" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:11.462063" level="INFO">${result} = /usr/bin/iperf3</msg>
+<var>${result}</var>
+<arg>which iperf3 || echo "NOT_FOUND"</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.449415" elapsed="0.012669"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Log Message To Console</arg>
+<arg>[${ts}] iperf3 NOT FOUND on device, proceeding to install</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.462258" elapsed="0.000182"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Log Message To Custom File</arg>
+<arg>[${ts}] iperf3 NOT FOUND on device, proceeding to install</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.462541" elapsed="0.000105"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Install Iperf3</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.462729" elapsed="0.000094"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:11.463335" level="INFO">[2025-07-11 11:27:11] [2025-07-11 11:27:11] iperf3 already installed on device</msg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<status status="PASS" start="2025-07-11T11:27:11.463108" elapsed="0.000266"/>
+</kw>
+<arg>'${result}' != 'NOT_FOUND'</arg>
+<arg>Log Message To Console</arg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.462950" elapsed="0.000466"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:11.464228" level="INFO">${now} = 2025-07-11 11:27:11</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.464037" elapsed="0.000213"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:11.464292" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-11T11:27:11.464400" level="INFO">${timestamp} = 2025-07-11 11:27:11</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:11.463903" elapsed="0.000512"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:11.464780" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/outputs/30fb8f29-0684-42bc-b360-a94de67597c8/log.html"&gt;/app/robot-framework-automation/outputs/30fb8f29-0684-42bc-b360-a94de67597c8/log.html&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.464485" elapsed="0.000346"/>
+</kw>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<status status="PASS" start="2025-07-11T11:27:11.463698" elapsed="0.001184"/>
+</kw>
+<arg>'${result}' != 'NOT_FOUND'</arg>
+<arg>Log Message To Custom File</arg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.463509" elapsed="0.001415"/>
+</kw>
+<status status="PASS" start="2025-07-11T11:27:11.447874" elapsed="0.017091"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.465040" elapsed="0.000225"/>
+</kw>
+<arg>${PC1}</arg>
+<status status="PASS" start="2025-07-11T11:27:10.256983" elapsed="1.208329"/>
+</kw>
+<kw name="Ensure Iperf3 Installed On Device">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${DEVICE['ip']}</arg>
+<arg>timeout=2s</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.465602" elapsed="0.000391"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:11.466500" level="INFO">Logging into '10.10.10.12:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:27:12.739275" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:26:56 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${DEVICE['username']}</arg>
+<arg>${DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:11.466075" elapsed="1.273322"/>
+</kw>
+<kw name="Ensure Iperf3 Installed">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:12.740347" level="INFO">${now} = 2025-07-11 11:27:12</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.740142" elapsed="0.000226"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:12.740411" elapsed="0.000034"/>
+</return>
+<msg time="2025-07-11T11:27:12.740524" level="INFO">${time} = 2025-07-11 11:27:12</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:12.739972" elapsed="0.000568"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:12.740572" elapsed="0.000031"/>
+</return>
+<msg time="2025-07-11T11:27:12.740677" level="INFO">${ts} = 2025-07-11 11:27:12</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:12.739829" elapsed="0.000864"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:12.740865" level="INFO">Executing command 'which iperf3 || echo "NOT_FOUND"'.</msg>
+<msg time="2025-07-11T11:27:12.752707" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:12.752881" level="INFO">${result} = /usr/bin/iperf3</msg>
+<var>${result}</var>
+<arg>which iperf3 || echo "NOT_FOUND"</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.740790" elapsed="0.012121"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Log Message To Console</arg>
+<arg>[${ts}] iperf3 NOT FOUND on device, proceeding to install</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.753132" elapsed="0.000216"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Log Message To Custom File</arg>
+<arg>[${ts}] iperf3 NOT FOUND on device, proceeding to install</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.753494" elapsed="0.000148"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Install Iperf3</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.753898" elapsed="0.000142"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:12.754643" level="INFO">[2025-07-11 11:27:12] [2025-07-11 11:27:12] iperf3 already installed on device</msg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<status status="PASS" start="2025-07-11T11:27:12.754442" elapsed="0.000255"/>
+</kw>
+<arg>'${result}' != 'NOT_FOUND'</arg>
+<arg>Log Message To Console</arg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.754173" elapsed="0.000579"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:12.755553" level="INFO">${now} = 2025-07-11 11:27:12</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.755375" elapsed="0.000198"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:12.755614" elapsed="0.000034"/>
+</return>
+<msg time="2025-07-11T11:27:12.755724" level="INFO">${timestamp} = 2025-07-11 11:27:12</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:12.755233" elapsed="0.000509"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:12.755997" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/outputs/30fb8f29-0684-42bc-b360-a94de67597c8/log.html"&gt;/app/robot-framework-automation/outputs/30fb8f29-0684-42bc-b360-a94de67597c8/log.html&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.755812" elapsed="0.000242"/>
+</kw>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<status status="PASS" start="2025-07-11T11:27:12.755022" elapsed="0.001099"/>
+</kw>
+<arg>'${result}' != 'NOT_FOUND'</arg>
+<arg>Log Message To Custom File</arg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.754849" elapsed="0.001309"/>
+</kw>
+<status status="PASS" start="2025-07-11T11:27:12.739600" elapsed="0.016596"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.756268" elapsed="0.000233"/>
+</kw>
+<arg>${PC2}</arg>
+<status status="PASS" start="2025-07-11T11:27:11.465415" elapsed="1.291153"/>
+</kw>
+<kw name="Ensure Iperf3 Installed On Device">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${DEVICE['ip']}</arg>
+<arg>timeout=2s</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.756919" elapsed="0.000393"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:12.757862" level="INFO">Logging into '10.10.10.13:22' as 'osboxes'.</msg>
+<msg time="2025-07-11T11:27:13.935512" level="INFO">Read output: Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+657 updates can be applied immediately.
+449 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Jul 11 07:27:03 2025 from 10.10.10.10
+[?2004hosboxes@osboxes:~$</msg>
+<arg>${DEVICE['username']}</arg>
+<arg>${DEVICE['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:12.757394" elapsed="1.178232"/>
+</kw>
+<kw name="Ensure Iperf3 Installed">
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:13.936662" level="INFO">${now} = 2025-07-11 11:27:13</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.936403" elapsed="0.000283"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:13.936734" elapsed="0.000036"/>
+</return>
+<msg time="2025-07-11T11:27:13.936857" level="INFO">${time} = 2025-07-11 11:27:13</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:13.936204" elapsed="0.000669"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:13.936903" elapsed="0.000019"/>
+</return>
+<msg time="2025-07-11T11:27:13.936983" level="INFO">${ts} = 2025-07-11 11:27:13</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:13.936047" elapsed="0.000951"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:13.937146" level="INFO">Executing command 'which iperf3 || echo "NOT_FOUND"'.</msg>
+<msg time="2025-07-11T11:27:13.948998" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:13.949143" level="INFO">${result} = /usr/bin/iperf3</msg>
+<var>${result}</var>
+<arg>which iperf3 || echo "NOT_FOUND"</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.937078" elapsed="0.012085"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Log Message To Console</arg>
+<arg>[${ts}] iperf3 NOT FOUND on device, proceeding to install</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.949354" elapsed="0.000167"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Log Message To Custom File</arg>
+<arg>[${ts}] iperf3 NOT FOUND on device, proceeding to install</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.949614" elapsed="0.000092"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${result}' == 'NOT_FOUND'</arg>
+<arg>Install Iperf3</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.949784" elapsed="0.000086"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:13.950268" level="INFO">[2025-07-11 11:27:13] [2025-07-11 11:27:13] iperf3 already installed on device</msg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<status status="PASS" start="2025-07-11T11:27:13.950080" elapsed="0.000226"/>
+</kw>
+<arg>'${result}' != 'NOT_FOUND'</arg>
+<arg>Log Message To Console</arg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.949945" elapsed="0.000401"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:13.951211" level="INFO">${now} = 2025-07-11 11:27:13</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.951025" elapsed="0.000206"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:13.951271" elapsed="0.000034"/>
+</return>
+<msg time="2025-07-11T11:27:13.951392" level="INFO">${timestamp} = 2025-07-11 11:27:13</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:13.950835" elapsed="0.000575"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:13.951790" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/outputs/30fb8f29-0684-42bc-b360-a94de67597c8/log.html"&gt;/app/robot-framework-automation/outputs/30fb8f29-0684-42bc-b360-a94de67597c8/log.html&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.951600" elapsed="0.000226"/>
+</kw>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<status status="PASS" start="2025-07-11T11:27:13.950616" elapsed="0.001254"/>
+</kw>
+<arg>'${result}' != 'NOT_FOUND'</arg>
+<arg>Log Message To Custom File</arg>
+<arg>[${ts}] iperf3 already installed on device</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.950430" elapsed="0.001478"/>
+</kw>
+<status status="PASS" start="2025-07-11T11:27:13.935823" elapsed="0.016122"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.952013" elapsed="0.000239"/>
+</kw>
+<arg>${PC3}</arg>
+<status status="PASS" start="2025-07-11T11:27:12.756713" elapsed="1.195598"/>
+</kw>
+<kw name="Configure Port Range" owner="final">
+<msg time="2025-07-11T11:27:13.952597" level="INFO">[2025-07-11 11:27:13] Port range configured: 5201 to 5299</msg>
+<arg>5201</arg>
+<arg>5299</arg>
+<status status="PASS" start="2025-07-11T11:27:13.952412" elapsed="0.000235"/>
+</kw>
+<kw name="Get Next Available Port" owner="final">
+<msg time="2025-07-11T11:27:13.952898" level="INFO">[2025-07-11 11:27:13] Assigned next available port: 5201</msg>
+<msg time="2025-07-11T11:27:13.952972" level="INFO">${port1} = 5201</msg>
+<var>${port1}</var>
+<status status="PASS" start="2025-07-11T11:27:13.952759" elapsed="0.000234"/>
+</kw>
+<kw name="Get Next Available Port" owner="final">
+<msg time="2025-07-11T11:27:13.953231" level="INFO">[2025-07-11 11:27:13] Assigned next available port: 5202</msg>
+<msg time="2025-07-11T11:27:13.953298" level="INFO">${port2} = 5202</msg>
+<var>${port2}</var>
+<status status="PASS" start="2025-07-11T11:27:13.953096" elapsed="0.000222"/>
+</kw>
+<kw name="Get Next Available Port" owner="final">
+<msg time="2025-07-11T11:27:13.953540" level="INFO">[2025-07-11 11:27:13] Assigned next available port: 5203</msg>
+<msg time="2025-07-11T11:27:13.953605" level="INFO">${port3} = 5203</msg>
+<var>${port3}</var>
+<status status="PASS" start="2025-07-11T11:27:13.953417" elapsed="0.000208"/>
+</kw>
+<kw name="Get Next Available Port" owner="final">
+<msg time="2025-07-11T11:27:13.953850" level="INFO">[2025-07-11 11:27:13] Assigned next available port: 5204</msg>
+<msg time="2025-07-11T11:27:13.953918" level="INFO">${port4} = 5204</msg>
+<var>${port4}</var>
+<status status="PASS" start="2025-07-11T11:27:13.953722" elapsed="0.000216"/>
+</kw>
+<kw name="Get Next Available Port" owner="final">
+<msg time="2025-07-11T11:27:13.954165" level="INFO">[2025-07-11 11:27:13] Assigned next available port: 5205</msg>
+<msg time="2025-07-11T11:27:13.954229" level="INFO">${port5} = 5205</msg>
+<var>${port5}</var>
+<status status="PASS" start="2025-07-11T11:27:13.954037" elapsed="0.000213"/>
+</kw>
+<kw name="Get Next Available Port" owner="final">
+<msg time="2025-07-11T11:27:13.954476" level="INFO">[2025-07-11 11:27:13] Assigned next available port: 5206</msg>
+<msg time="2025-07-11T11:27:13.954540" level="INFO">${port6} = 5206</msg>
+<var>${port6}</var>
+<status status="PASS" start="2025-07-11T11:27:13.954351" elapsed="0.000210"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:13.955040" level="INFO">[2025-07-11 11:27:13] ==== Starting Iperf3 Servers ====</msg>
+<arg>==== Starting Iperf3 Servers ====</arg>
+<status status="PASS" start="2025-07-11T11:27:13.954657" elapsed="0.000434"/>
+</kw>
+<kw name="Start Iperf Server" owner="final">
+<msg time="2025-07-11T11:27:13.958494" level="INFO">[2025-07-11 11:27:13] Starting iperf3 server on 10.10.10.11 port 5201
+[2025-07-11 11:27:13] iperf3 server command output:
+/bin/sh: 1: sshpass: not found</msg>
+<arg>${PC1['ip']}</arg>
+<arg>${PC1['username']}</arg>
+<arg>${PC1['password']}</arg>
+<arg>${port1}</arg>
+<status status="PASS" start="2025-07-11T11:27:13.955197" elapsed="0.003383"/>
+</kw>
+<kw name="Start Iperf Server" owner="final">
+<msg time="2025-07-11T11:27:13.960380" level="INFO">[2025-07-11 11:27:13] Starting iperf3 server on 10.10.10.12 port 5202
+[2025-07-11 11:27:13] iperf3 server command output:
+/bin/sh: 1: sshpass: not found</msg>
+<arg>${PC2['ip']}</arg>
+<arg>${PC2['username']}</arg>
+<arg>${PC2['password']}</arg>
+<arg>${port2}</arg>
+<status status="PASS" start="2025-07-11T11:27:13.958751" elapsed="0.001690"/>
+</kw>
+<kw name="Start Iperf Server" owner="final">
+<msg time="2025-07-11T11:27:13.961980" level="INFO">[2025-07-11 11:27:13] Starting iperf3 server on 10.10.10.12 port 5203
+[2025-07-11 11:27:13] iperf3 server command output:
+/bin/sh: 1: sshpass: not found</msg>
+<arg>${PC2['ip']}</arg>
+<arg>${PC2['username']}</arg>
+<arg>${PC2['password']}</arg>
+<arg>${port3}</arg>
+<status status="PASS" start="2025-07-11T11:27:13.960575" elapsed="0.001463"/>
+</kw>
+<kw name="Start Iperf Server" owner="final">
+<msg time="2025-07-11T11:27:13.963499" level="INFO">[2025-07-11 11:27:13] Starting iperf3 server on 10.10.10.13 port 5204
+[2025-07-11 11:27:13] iperf3 server command output:
+/bin/sh: 1: sshpass: not found</msg>
+<arg>${PC3['ip']}</arg>
+<arg>${PC3['username']}</arg>
+<arg>${PC3['password']}</arg>
+<arg>${port4}</arg>
+<status status="PASS" start="2025-07-11T11:27:13.962162" elapsed="0.001390"/>
+</kw>
+<kw name="Start Iperf Server" owner="final">
+<msg time="2025-07-11T11:27:13.964990" level="INFO">[2025-07-11 11:27:13] Starting iperf3 server on 10.10.10.13 port 5205
+[2025-07-11 11:27:13] iperf3 server command output:
+/bin/sh: 1: sshpass: not found</msg>
+<arg>${PC3['ip']}</arg>
+<arg>${PC3['username']}</arg>
+<arg>${PC3['password']}</arg>
+<arg>${port5}</arg>
+<status status="PASS" start="2025-07-11T11:27:13.963665" elapsed="0.001397"/>
+</kw>
+<kw name="Start Iperf Server" owner="final">
+<msg time="2025-07-11T11:27:13.967191" level="INFO">[2025-07-11 11:27:13] Starting iperf3 server on 10.10.10.11 port 5206
+[2025-07-11 11:27:13] iperf3 server command output:
+/bin/sh: 1: sshpass: not found</msg>
+<arg>${PC1['ip']}</arg>
+<arg>${PC1['username']}</arg>
+<arg>${PC1['password']}</arg>
+<arg>${port6}</arg>
+<status status="PASS" start="2025-07-11T11:27:13.965216" elapsed="0.002042"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-11T11:27:15.967732" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-11T11:27:13.967411" elapsed="2.000441"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:15.968286" level="INFO">[2025-07-11 11:27:15] ==== Running Iperf3 Clients in Full Mesh Parallel ====</msg>
+<arg>==== Running Iperf3 Clients in Full Mesh Parallel ====</arg>
+<status status="PASS" start="2025-07-11T11:27:15.968025" elapsed="0.000302"/>
+</kw>
+<kw name="Start Monitoring During Iperf" owner="final">
+<msg time="2025-07-11T11:27:15.969674" level="INFO">[2025-07-11 11:27:15] Started real-time resource monitoring on OpenWRT every 1s</msg>
+<arg>${BB['ip']}</arg>
+<arg>${BB['username']}</arg>
+<arg>${BB['password']}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.968437" elapsed="0.001335"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="final">
+<msg time="2025-07-11T11:27:15.971546" level="INFO">[2025-07-11 11:27:15] Starting iperf3 client 10.10.10.12 -&gt; 10.10.10.11:5201 for 10s</msg>
+<arg>${PC2['ip']}</arg>
+<arg>${PC2['username']}</arg>
+<arg>${PC2['password']}</arg>
+<arg>${PC1['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>${port1}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.969947" elapsed="0.001663"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="final">
+<msg time="2025-07-11T11:27:15.973099" level="INFO">[2025-07-11 11:27:15] Starting iperf3 client 10.10.10.11 -&gt; 10.10.10.12:5202 for 10s</msg>
+<arg>${PC1['ip']}</arg>
+<arg>${PC1['username']}</arg>
+<arg>${PC1['password']}</arg>
+<arg>${PC2['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>${port2}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.971757" elapsed="0.001416"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="final">
+<msg time="2025-07-11T11:27:15.974998" level="INFO">[2025-07-11 11:27:15] Starting iperf3 client 10.10.10.13 -&gt; 10.10.10.12:5203 for 10s</msg>
+<arg>${PC3['ip']}</arg>
+<arg>${PC3['username']}</arg>
+<arg>${PC3['password']}</arg>
+<arg>${PC2['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>${port3}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.973350" elapsed="0.001715"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="final">
+<msg time="2025-07-11T11:27:15.976789" level="INFO">[2025-07-11 11:27:15] Starting iperf3 client 10.10.10.12 -&gt; 10.10.10.13:5204 for 10s</msg>
+<arg>${PC2['ip']}</arg>
+<arg>${PC2['username']}</arg>
+<arg>${PC2['password']}</arg>
+<arg>${PC3['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>${port4}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.975221" elapsed="0.001632"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="final">
+<msg time="2025-07-11T11:27:15.978548" level="INFO">[2025-07-11 11:27:15] Starting iperf3 client 10.10.10.11 -&gt; 10.10.10.13:5205 for 10s</msg>
+<arg>${PC1['ip']}</arg>
+<arg>${PC1['username']}</arg>
+<arg>${PC1['password']}</arg>
+<arg>${PC3['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>${port5}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.977004" elapsed="0.001610"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="final">
+<msg time="2025-07-11T11:27:15.980753" level="INFO">[2025-07-11 11:27:15] Iperf3 output 10.10.10.12 -&gt; 10.10.10.11:5201:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:27:15] Starting iperf3 client 10.10.10.13 -&gt; 10.10.10.11:5206 for 10s</msg>
+<arg>${PC3['ip']}</arg>
+<arg>${PC3['username']}</arg>
+<arg>${PC3['password']}</arg>
+<arg>${PC1['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>${port6}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.978812" elapsed="0.002008"/>
+</kw>
+<kw name="Wait For All Iperf Clients" owner="final">
+<msg time="2025-07-11T11:27:15.982533" level="INFO">[2025-07-11 11:27:15] Iperf3 output 10.10.10.11 -&gt; 10.10.10.12:5202:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:27:15] Iperf3 output 10.10.10.13 -&gt; 10.10.10.12:5203:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:27:15] Iperf3 output 10.10.10.11 -&gt; 10.10.10.13:5205:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:27:15] Iperf3 output 10.10.10.12 -&gt; 10.10.10.13:5204:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:27:15] Iperf3 output 10.10.10.13 -&gt; 10.10.10.11:5206:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:27:15] All iperf3 client threads completed</msg>
+<status status="PASS" start="2025-07-11T11:27:15.980974" elapsed="0.001657"/>
+</kw>
+<kw name="Stop Monitoring" owner="final">
+<msg time="2025-07-11T11:27:15.983004" level="INFO">[2025-07-11 11:27:15] Stopped real-time resource monitoring on OpenWRT</msg>
+<status status="PASS" start="2025-07-11T11:27:15.982824" elapsed="0.000228"/>
+</kw>
+<kw name="Capture Post Test System Stats">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${BB_IP}</arg>
+<arg>timeout=15s</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-11T11:27:15.984824" elapsed="0.000316"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:15.985456" level="INFO">Logging into '10.10.10.23:22' as 'root'.</msg>
+<msg time="2025-07-11T11:27:17.089367" level="INFO">Read output: 
+
+BusyBox v1.36.1 (2025-07-06 15:35:16 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 24.10-SNAPSHOT, 1-0-0-49-2025-07-07-02-10-28
+ -----------------------------------------------------
+root@0C-86-EE-F0-00-01:~#</msg>
+<msg time="2025-07-11T11:27:17.089470" level="INFO">[2025-07-11 11:27:16] Connected to OpenWRT for resource monitoring
+[2025-07-11 11:27:16] Real-time monitoring stopped and SSH session closed</msg>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-07-11T11:27:15.985287" elapsed="1.104223"/>
+</kw>
+<kw name="Get Timestamp">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-11T11:27:17.090301" level="INFO">${now} = 2025-07-11 11:27:17</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-11T11:27:17.090088" elapsed="0.000234"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-11T11:27:17.090367" elapsed="0.000036"/>
+</return>
+<msg time="2025-07-11T11:27:17.090485" level="INFO">${time} = 2025-07-11 11:27:17</msg>
+<var>${time}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-11T11:27:17.089902" elapsed="0.000599"/>
+</kw>
+<return>
+<value>${time}</value>
+<status status="PASS" start="2025-07-11T11:27:17.090531" elapsed="0.000020"/>
+</return>
+<msg time="2025-07-11T11:27:17.090615" level="INFO">${ts} = 2025-07-11 11:27:17</msg>
+<var>${ts}</var>
+<status status="PASS" start="2025-07-11T11:27:17.089693" elapsed="0.000937"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:17.090904" level="INFO">[2025-07-11 11:27:17] [2025-07-11 11:27:17] ==== Capturing Post-Test CPU, Memory, Interrupts ====</msg>
+<arg>[${ts}] ==== Capturing Post-Test CPU, Memory, Interrupts ====</arg>
+<status status="PASS" start="2025-07-11T11:27:17.090698" elapsed="0.000242"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:17.091103" level="INFO">Executing command 'sar -u 1 1'.</msg>
+<msg time="2025-07-11T11:27:18.094178" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:18.094319" level="INFO">${cpu_output} = Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:27:15        CPU     %user     %nice   %system   %iowait    %steal     %idle
+11:27:16        all      2.00      0.00      0.00      0.0...</msg>
+<var>${cpu_output}</var>
+<arg>sar -u 1 1</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:17.091031" elapsed="1.003309"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:18.094617" level="INFO">Executing command 'sar -r 1 1'.</msg>
+<msg time="2025-07-11T11:27:19.155791" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:19.155968" level="INFO">${mem_output} = Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:27:16    kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+11:27:17        ...</msg>
+<var>${mem_output}</var>
+<arg>sar -r 1 1</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:18.094503" elapsed="1.061491"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-07-11T11:27:19.156383" level="INFO">Executing command 'cat /proc/interrupts'.</msg>
+<msg time="2025-07-11T11:27:19.203900" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-07-11T11:27:19.204046" level="INFO">${intr_output} =            CPU0       
+  0:         17   IO-APIC   2-edge      timer
+  1:          9   IO-APIC   1-edge      i8042
+  4:       2015   IO-APIC   4-edge      ttyS0
+  8:          1   IO-APIC   8-edge     ...</msg>
+<var>${intr_output}</var>
+<arg>cat /proc/interrupts</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-07-11T11:27:19.156256" elapsed="0.047811"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:19.204540" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] ===== Post-Test CPU Stats =====\n${cpu_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:19.204212" elapsed="0.000395"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:19.204959" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] ===== Post-Test Memory Stats =====\n${mem_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:19.204736" elapsed="0.000278"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-11T11:27:19.205280" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250711_112646.log"&gt;/app/robot-framework-automation/logs/custom_log_20250711_112646.log&lt;/a&gt;'.</msg>
+<arg>${custom_log}</arg>
+<arg>\n[${ts}] ===== Post-Test Interrupt Stats =====\n${intr_output}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-11T11:27:19.205098" elapsed="0.000232"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-07-11T11:27:19.205413" elapsed="0.000202"/>
+</kw>
+<arg>${BB['ip']}</arg>
+<arg>${BB['username']}</arg>
+<arg>${BB['password']}</arg>
+<status status="PASS" start="2025-07-11T11:27:15.983257" elapsed="3.222405"/>
+</kw>
+<kw name="Log Message To Console" owner="final">
+<msg time="2025-07-11T11:27:19.205849" level="INFO">[2025-07-11 11:27:19] ==== Completed Full Ethernet Bridging and Performance Test ====</msg>
+<arg>==== Completed Full Ethernet Bridging and Performance Test ====</arg>
+<status status="PASS" start="2025-07-11T11:27:19.205736" elapsed="0.000157"/>
+</kw>
+<doc>Full test with connectivity, baseline CPU/memory/interrupts, parallel iperf3, post-test stats.</doc>
+<tag>BB-TRF-BRG-001</tag>
+<status status="PASS" start="2025-07-11T11:26:46.977444" elapsed="32.228550"/>
+</test>
+<status status="PASS" start="2025-07-11T11:26:46.520625" elapsed="32.685663"/>
+</suite>
+<status status="PASS" start="2025-07-11T11:26:46.519208" elapsed="32.687449"/>
+</suite>
+<status status="PASS" start="2025-07-11T11:26:46.517446" elapsed="32.689459"/>
+</suite>
+<status status="PASS" start="2025-07-11T11:26:46.471051" elapsed="32.736077"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">BB-TRF-BRG-001</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
+<stat name="Wifi" id="s1-s1" pass="1" fail="0" skip="0">Tests.Wifi</stat>
+<stat name="TS-001" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Wifi.TS-001</stat>
+<stat name="TC-001" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Tests.Wifi.TS-001.TC-001</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-11T11:26:46.465144" level="WARN">Error in file '/app/robot-framework-automation/tests/wifi/TS-001/TC-001.robot' on line 85: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

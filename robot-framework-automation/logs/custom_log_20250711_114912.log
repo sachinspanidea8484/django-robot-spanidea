@@ -1,0 +1,289 @@
+
+=== Log Started: 2025-07-11 11:49:12 ===
+[2025-07-11 11:49:12] Custom log file set to: /app/robot-framework-automation/tests/wifi/TS-001/../../../logs/custom_log_20250711_114912.log
+[2025-07-11 11:49:12] ==== Starting Full Ethernet Bridging and Performance Test ====
+[2025-07-11 11:49:12] [2025-07-11 11:49:12] ==== Verifying Ping Connectivity Among PCs ====
+[2025-07-11 11:49:12] [2025-07-11 11:49:12] --> 10.10.10.11 pinging 10.10.10.12
+[2025-07-11 11:49:15] [2025-07-11 11:49:12] [10.10.10.11] Ping Output:
+PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=0.872 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=1.16 ms
+64 bytes from 10.10.10.12: icmp_seq=3 ttl=64 time=1.14 ms
+
+--- 10.10.10.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 0.872/1.054/1.155/0.129 ms
+
+[2025-07-11 11:49:12] [10.10.10.11] Ping to 10.10.10.12:
+PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=0.872 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=1.16 ms
+64 bytes from 10.10.10.12: icmp_seq=3 ttl=64 time=1.14 ms
+
+--- 10.10.10.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 0.872/1.054/1.155/0.129 ms
+[2025-07-11 11:49:15] [2025-07-11 11:49:15] --> 10.10.10.11 pinging 10.10.10.13
+[2025-07-11 11:49:19] [2025-07-11 11:49:15] [10.10.10.11] Ping Output:
+PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.406 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=1.19 ms
+64 bytes from 10.10.10.13: icmp_seq=3 ttl=64 time=0.449 ms
+
+--- 10.10.10.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2018ms
+rtt min/avg/max/mdev = 0.406/0.680/1.186/0.357 ms
+
+[2025-07-11 11:49:15] [10.10.10.11] Ping to 10.10.10.13:
+PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.406 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=1.19 ms
+64 bytes from 10.10.10.13: icmp_seq=3 ttl=64 time=0.449 ms
+
+--- 10.10.10.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2018ms
+rtt min/avg/max/mdev = 0.406/0.680/1.186/0.357 ms
+[2025-07-11 11:49:19] [2025-07-11 11:49:19] --> 10.10.10.12 pinging 10.10.10.11
+[2025-07-11 11:49:22] [2025-07-11 11:49:19] [10.10.10.12] Ping Output:
+PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.926 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.479 ms
+64 bytes from 10.10.10.11: icmp_seq=3 ttl=64 time=0.536 ms
+
+--- 10.10.10.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2009ms
+rtt min/avg/max/mdev = 0.479/0.647/0.926/0.198 ms
+
+[2025-07-11 11:49:19] [10.10.10.12] Ping to 10.10.10.11:
+PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.926 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.479 ms
+64 bytes from 10.10.10.11: icmp_seq=3 ttl=64 time=0.536 ms
+
+--- 10.10.10.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2009ms
+rtt min/avg/max/mdev = 0.479/0.647/0.926/0.198 ms
+[2025-07-11 11:49:22] [2025-07-11 11:49:22] --> 10.10.10.12 pinging 10.10.10.13
+[2025-07-11 11:49:25] [2025-07-11 11:49:22] [10.10.10.12] Ping Output:
+PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.758 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=0.460 ms
+64 bytes from 10.10.10.13: icmp_seq=3 ttl=64 time=1.31 ms
+
+--- 10.10.10.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2022ms
+rtt min/avg/max/mdev = 0.460/0.841/1.305/0.349 ms
+
+[2025-07-11 11:49:22] [10.10.10.12] Ping to 10.10.10.13:
+PING 10.10.10.13 (10.10.10.13) 56(84) bytes of data.
+64 bytes from 10.10.10.13: icmp_seq=1 ttl=64 time=0.758 ms
+64 bytes from 10.10.10.13: icmp_seq=2 ttl=64 time=0.460 ms
+64 bytes from 10.10.10.13: icmp_seq=3 ttl=64 time=1.31 ms
+
+--- 10.10.10.13 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2022ms
+rtt min/avg/max/mdev = 0.460/0.841/1.305/0.349 ms
+[2025-07-11 11:49:25] [2025-07-11 11:49:25] --> 10.10.10.13 pinging 10.10.10.11
+[2025-07-11 11:49:28] [2025-07-11 11:49:25] [10.10.10.13] Ping Output:
+PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.749 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.581 ms
+64 bytes from 10.10.10.11: icmp_seq=3 ttl=64 time=0.824 ms
+
+--- 10.10.10.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2021ms
+rtt min/avg/max/mdev = 0.581/0.718/0.824/0.101 ms
+
+[2025-07-11 11:49:25] [10.10.10.13] Ping to 10.10.10.11:
+PING 10.10.10.11 (10.10.10.11) 56(84) bytes of data.
+64 bytes from 10.10.10.11: icmp_seq=1 ttl=64 time=0.749 ms
+64 bytes from 10.10.10.11: icmp_seq=2 ttl=64 time=0.581 ms
+64 bytes from 10.10.10.11: icmp_seq=3 ttl=64 time=0.824 ms
+
+--- 10.10.10.11 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2021ms
+rtt min/avg/max/mdev = 0.581/0.718/0.824/0.101 ms
+[2025-07-11 11:49:28] [2025-07-11 11:49:28] --> 10.10.10.13 pinging 10.10.10.12
+[2025-07-11 11:49:32] [2025-07-11 11:49:28] [10.10.10.13] Ping Output:
+PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=1.20 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=0.535 ms
+64 bytes from 10.10.10.12: icmp_seq=3 ttl=64 time=1.29 ms
+
+--- 10.10.10.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2028ms
+rtt min/avg/max/mdev = 0.535/1.009/1.289/0.337 ms
+
+[2025-07-11 11:49:28] [10.10.10.13] Ping to 10.10.10.12:
+PING 10.10.10.12 (10.10.10.12) 56(84) bytes of data.
+64 bytes from 10.10.10.12: icmp_seq=1 ttl=64 time=1.20 ms
+64 bytes from 10.10.10.12: icmp_seq=2 ttl=64 time=0.535 ms
+64 bytes from 10.10.10.12: icmp_seq=3 ttl=64 time=1.29 ms
+
+--- 10.10.10.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2028ms
+rtt min/avg/max/mdev = 0.535/1.009/1.289/0.337 ms
+[2025-07-11 11:49:33] [2025-07-11 11:49:33] ==== Capturing Baseline CPU, Memory, Interrupts ====
+
+[2025-07-11 11:49:33] ===== Baseline CPU Stats =====
+Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:49:32        CPU     %user     %nice   %system   %iowait    %steal     %idle
+11:49:33        all      3.03      0.00      2.02      0.00      0.00     94.95
+Average:        all      3.03      0.00      2.02      0.00      0.00     94.95
+
+[2025-07-11 11:49:33] ===== Baseline Memory Stats =====
+Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:49:33    kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+11:49:34        60064     85072     89156     38.19      5392     63884    135232     57.93    117808     13732         0
+Average:        60064     85072     89156     38.19      5392     63884    135232     57.93    117808     13732         0
+
+[2025-07-11 11:49:33] ===== Baseline Interrupt Stats =====
+           CPU0       
+  0:         17   IO-APIC   2-edge      timer
+  1:          9   IO-APIC   1-edge      i8042
+  4:       2015   IO-APIC   4-edge      ttyS0
+  8:          1   IO-APIC   8-edge      rtc0
+  9:          0   IO-APIC   9-fasteoi   acpi
+ 10:       3776   IO-APIC  10-fasteoi   eth1
+ 11:      47783   IO-APIC  11-fasteoi   eth0
+ 12:          5   IO-APIC  12-edge      i8042
+ 14:      19212   IO-APIC  14-edge      ata_piix
+ 15:         25   IO-APIC  15-edge      ata_piix
+NMI:          0   Non-maskable interrupts
+LOC:     205366   Local timer interrupts
+SPU:          0   Spurious interrupts
+PMI:          0   Performance monitoring interrupts
+IWI:          1   IRQ work interrupts
+RTR:          0   APIC ICR read retries
+RES:          0   Rescheduling interrupts
+CAL:          0   Function call interrupts
+TLB:          0   TLB shootdowns
+TRM:          0   Thermal event interrupts
+THR:          0   Threshold APIC interrupts
+DFR:          0   Deferred Error APIC interrupts
+MCE:          0   Machine check exceptions
+MCP:         16   Machine check polls
+ERR:          0
+MIS:          0
+PIN:          0   Posted-interrupt notification event
+NPI:          0   Nested posted-interrupt event
+PIW:          0   Posted-interrupt wakeup event
+[2025-07-11 11:49:36] [2025-07-11 11:49:36] iperf3 already installed on device
+[2025-07-11 11:49:37] [2025-07-11 11:49:37] iperf3 already installed on device
+[2025-07-11 11:49:39] [2025-07-11 11:49:39] iperf3 already installed on device
+[2025-07-11 11:49:39] Port range configured: 5201 to 5299
+[2025-07-11 11:49:39] Assigned next available port: 5201
+[2025-07-11 11:49:39] Assigned next available port: 5202
+[2025-07-11 11:49:39] Assigned next available port: 5203
+[2025-07-11 11:49:39] Assigned next available port: 5204
+[2025-07-11 11:49:39] Assigned next available port: 5205
+[2025-07-11 11:49:39] Assigned next available port: 5206
+[2025-07-11 11:49:39] ==== Starting Iperf3 Servers ====
+[2025-07-11 11:49:39] Starting iperf3 server on 10.10.10.11 port 5201
+[2025-07-11 11:49:39] iperf3 server command output:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:39] Starting iperf3 server on 10.10.10.12 port 5202
+[2025-07-11 11:49:39] iperf3 server command output:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:39] Starting iperf3 server on 10.10.10.12 port 5203
+[2025-07-11 11:49:39] iperf3 server command output:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:39] Starting iperf3 server on 10.10.10.13 port 5204
+[2025-07-11 11:49:39] iperf3 server command output:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:39] Starting iperf3 server on 10.10.10.13 port 5205
+[2025-07-11 11:49:39] iperf3 server command output:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:39] Starting iperf3 server on 10.10.10.11 port 5206
+[2025-07-11 11:49:39] iperf3 server command output:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] ==== Running Iperf3 Clients in Full Mesh Parallel ====
+[2025-07-11 11:49:41] Started real-time resource monitoring on OpenWRT every 1s
+[2025-07-11 11:49:41] Starting iperf3 client 10.10.10.12 -> 10.10.10.11:5201 for 10s
+[2025-07-11 11:49:41] Starting iperf3 client 10.10.10.11 -> 10.10.10.12:5202 for 10s
+[2025-07-11 11:49:41] Starting iperf3 client 10.10.10.13 -> 10.10.10.12:5203 for 10s
+[2025-07-11 11:49:41] Starting iperf3 client 10.10.10.12 -> 10.10.10.13:5204 for 10s
+[2025-07-11 11:49:41] Starting iperf3 client 10.10.10.11 -> 10.10.10.13:5205 for 10s
+[2025-07-11 11:49:41] Starting iperf3 client 10.10.10.13 -> 10.10.10.11:5206 for 10s
+[2025-07-11 11:49:41] Iperf3 output 10.10.10.12 -> 10.10.10.11:5201:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] Iperf3 output 10.10.10.13 -> 10.10.10.12:5203:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] Iperf3 output 10.10.10.11 -> 10.10.10.12:5202:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] Iperf3 output 10.10.10.12 -> 10.10.10.13:5204:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] Iperf3 output 10.10.10.11 -> 10.10.10.13:5205:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] Iperf3 output 10.10.10.13 -> 10.10.10.11:5206:
+/bin/sh: 1: sshpass: not found
+
+[2025-07-11 11:49:41] All iperf3 client threads completed
+[2025-07-11 11:49:41] Stopped real-time resource monitoring on OpenWRT
+[2025-07-11 11:49:41] Connected to OpenWRT for resource monitoring
+
+===== Real-time Monitoring Started =====
+
+===== Real-time Monitoring Stopped =====
+[2025-07-11 11:49:41] Real-time monitoring stopped and SSH session closed
+[2025-07-11 11:49:42] [2025-07-11 11:49:42] ==== Capturing Post-Test CPU, Memory, Interrupts ====
+
+[2025-07-11 11:49:42] ===== Post-Test CPU Stats =====
+Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:49:41        CPU     %user     %nice   %system   %iowait    %steal     %idle
+11:49:42        all      4.04      0.00      2.02      0.00      0.00     93.94
+Average:        all      4.04      0.00      2.02      0.00      0.00     93.94
+
+[2025-07-11 11:49:42] ===== Post-Test Memory Stats =====
+Linux 6.6.95 (0C-86-EE-F0-00-01) 	07/11/25 	_x86_64_	(1 CPU)
+
+11:49:42    kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+11:49:43        60064     85072     89152     38.19      5392     63884    135232     57.93    117808     13732         0
+Average:        60064     85072     89152     38.19      5392     63884    135232     57.93    117808     13732         0
+
+[2025-07-11 11:49:42] ===== Post-Test Interrupt Stats =====
+           CPU0       
+  0:         17   IO-APIC   2-edge      timer
+  1:          9   IO-APIC   1-edge      i8042
+  4:       2015   IO-APIC   4-edge      ttyS0
+  8:          1   IO-APIC   8-edge      rtc0
+  9:          0   IO-APIC   9-fasteoi   acpi
+ 10:       3868   IO-APIC  10-fasteoi   eth1
+ 11:      47787   IO-APIC  11-fasteoi   eth0
+ 12:          5   IO-APIC  12-edge      i8042
+ 14:      19244   IO-APIC  14-edge      ata_piix
+ 15:         25   IO-APIC  15-edge      ata_piix
+NMI:          0   Non-maskable interrupts
+LOC:     205733   Local timer interrupts
+SPU:          0   Spurious interrupts
+PMI:          0   Performance monitoring interrupts
+IWI:          1   IRQ work interrupts
+RTR:          0   APIC ICR read retries
+RES:          0   Rescheduling interrupts
+CAL:          0   Function call interrupts
+TLB:          0   TLB shootdowns
+TRM:          0   Thermal event interrupts
+THR:          0   Threshold APIC interrupts
+DFR:          0   Deferred Error APIC interrupts
+MCE:          0   Machine check exceptions
+MCP:         16   Machine check polls
+ERR:          0
+MIS:          0
+PIN:          0   Posted-interrupt notification event
+NPI:          0   Nested posted-interrupt event
+PIW:          0   Posted-interrupt wakeup event
+[2025-07-11 11:49:44] ==== Completed Full Ethernet Bridging and Performance Test ====

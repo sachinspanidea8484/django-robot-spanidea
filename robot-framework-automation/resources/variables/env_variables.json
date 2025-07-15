@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "url": "http://dev.example.com",
+    "username": "devuser",
+    "password": "devpass"
+  },
+  "prod": {
+    "url": "http://example.com",
+    "username": "produser",
+    "password": "prodpass"
+  }
+}

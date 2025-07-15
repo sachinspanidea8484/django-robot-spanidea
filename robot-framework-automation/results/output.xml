@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-06-19T15:08:33.564787" rpa="false" schemaversion="5">
+<suite id="s1" name="Network Dynamicconnection" source="/home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/network_dynamicconnection.robot">
+<kw name="Initialize Custom Log File" owner="common_keywords" type="SETUP">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-19T15:08:33.744861" level="INFO">${now} = 20250619_150833</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.744589" elapsed="0.000306"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-06-19T15:08:33.744962" elapsed="0.000046"/>
+</return>
+<msg time="2025-06-19T15:08:33.745109" level="INFO">${timestamp} = 20250619_150833</msg>
+<var>${timestamp}</var>
+<arg>%Y%m%d_%H%M%S</arg>
+<status status="PASS" start="2025-06-19T15:08:33.743909" elapsed="0.001220"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-19T15:08:33.745378" level="INFO">${log_file} = /home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/../../logs/custom_log_20250619_150833.log</msg>
+<var>${log_file}</var>
+<arg>${LOG_FOLDER}/custom_log_${timestamp}.log</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.745223" elapsed="0.000178"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-19T15:08:33.745640" level="INFO">${LOG_FILE} = /home/spanidea-lt26/PycharmProjects/robot-framework-automation/tests/networking/../../logs/custom_log_20250619_150833.log</msg>
+<arg>${LOG_FILE}</arg>
+<arg>${log_file}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.745496" elapsed="0.000176"/>
+</kw>
+<status status="PASS" start="2025-06-19T15:08:33.743619" elapsed="0.002104"/>
+</kw>
+<test id="s1-t1" name="Verify Device Connectivity For All Devices" line="15">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-06-19T15:08:33.746170" level="INFO">${device_count} = 1</msg>
+<var>${device_count}</var>
+<arg>DEVICE_COUNT</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.746044" elapsed="0.000150"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-06-19T15:08:33.746631" level="INFO">${ip} = 192.168.0.0/24</msg>
+<var>${ip}</var>
+<arg>IP${i}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.746505" elapsed="0.000146"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-06-19T15:08:33.746848" level="INFO">${user} = admin</msg>
+<var>${user}</var>
+<arg>USER${i}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.746732" elapsed="0.000135"/>
+</kw>
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2025-06-19T15:08:33.747054" level="INFO">${pass} = secret</msg>
+<var>${pass}</var>
+<arg>PASS${i}</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.746944" elapsed="0.000128"/>
+</kw>
+<kw name="Verify Device Connectivity For Device">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-19T15:08:33.748106" level="INFO">${now} = 2025-06-19 15:08:33</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.747907" elapsed="0.000222"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-06-19T15:08:33.748175" elapsed="0.000030"/>
+</return>
+<msg time="2025-06-19T15:08:33.748293" level="INFO">${timestamp} = 2025-06-19 15:08:33</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-06-19T15:08:33.747739" elapsed="0.000573"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-06-19T15:08:33.748673" level="INFO" html="true">Appended to file '&lt;a href="file:///home/spanidea-lt26/PycharmProjects/robot-framework-automation/logs/custom_log_20250619_150833.log"&gt;/home/spanidea-lt26/PycharmProjects/robot-framework-automation/logs/custom_log_20250619_150833.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.748394" elapsed="0.000326"/>
+</kw>
+<arg>Starting test: Verify Device Connectivity for ${ip}</arg>
+<status status="PASS" start="2025-06-19T15:08:33.747465" elapsed="0.001316"/>
+</kw>
+<kw name="Connect To Device" owner="common_keywords">
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${ip}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-06-19T15:08:33.749171" elapsed="0.000189"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-06-19T15:08:33.749631" level="INFO">Logging into '192.168.0.0/24:22' as 'admin'.</msg>
+<msg time="2025-06-19T15:08:33.751044" level="FAIL">gaierror: [Errno -2] Name or service not known</msg>
+<arg>${user}</arg>
+<arg>${pass}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="FAIL" start="2025-06-19T15:08:33.749480" elapsed="0.002957">gaierror: [Errno -2] Name or service not known</status>
+</kw>
+<arg>${ip}</arg>
+<arg>${user}</arg>
+<arg>${pass}</arg>
+<status status="FAIL" start="2025-06-19T15:08:33.748893" elapsed="0.003728">gaierror: [Errno -2] Name or service not known</status>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<var>${result}</var>
+<arg>uname -a</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="NOT RUN" start="2025-06-19T15:08:33.752798" elapsed="0.000038"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-06-19T15:08:33.752949" elapsed="0.000024"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Result from ${ip}: ${result}</arg>
+<status status="NOT RUN" start="2025-06-19T15:08:33.753116" elapsed="0.000028"/>
+</kw>
+<kw name="Disconnect From Device" owner="common_keywords">
+<status status="NOT RUN" start="2025-06-19T15:08:33.753230" elapsed="0.000022"/>
+</kw>
+<arg>${ip}</arg>
+<arg>${user}</arg>
+<arg>${pass}</arg>
+<status status="FAIL" start="2025-06-19T15:08:33.747200" elapsed="0.006218">gaierror: [Errno -2] Name or service not known</status>
+</kw>
+<var name="${i}">RANGE</var>
+<status status="FAIL" start="2025-06-19T15:08:33.746423" elapsed="0.007082">gaierror: [Errno -2] Name or service not known</status>
+</iter>
+<var>${i}</var>
+<value>RANGE</value>
+<value>1</value>
+<value>${device_count}+1</value>
+<status status="FAIL" start="2025-06-19T15:08:33.746280" elapsed="0.007336">gaierror: [Errno -2] Name or service not known</status>
+</for>
+<status status="FAIL" start="2025-06-19T15:08:33.745775" elapsed="0.008073">gaierror: [Errno -2] Name or service not known</status>
+</test>
+<status status="FAIL" start="2025-06-19T15:08:33.565524" elapsed="0.188680"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Network Dynamicconnection" id="s1" pass="0" fail="1" skip="0">Network Dynamicconnection</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
