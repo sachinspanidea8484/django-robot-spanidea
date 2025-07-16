@@ -1,16 +1,17 @@
 *** Settings ***
-Library           ../../../resources/keywords/final.py
+Library           ../../resources/keywords/ethernet_bridge.py
 Library           OperatingSystem
 Library           JSONLibrary
 Library           SSHLibrary
 Library           Collections
 Library           String
 Library           BuiltIn
-Resource          ../../../resources/keywords/common_keywords.robot
+Resource          ../../resources/keywords/common_keywords.robot
+Suite Setup       Initialize Custom Log File
 
 *** Variables ***
-${CONFIG_FILE}    ${CURDIR}/../../../devices/device_config2.json
-${LOG_FOLDER}     ${CURDIR}/../../../logs
+${CONFIG_FILE}    ${CURDIR}/../../devices/tc_01.json
+${LOG_FOLDER}     ${CURDIR}/../../logs
 ${DURATION}       10
 ${BANDWIDTH}      450M
 
@@ -26,7 +27,6 @@ Full Ethernet Bridging and Performance Test
     ${PC2}=   Get From Dictionary    ${devices}    PC2
     ${PC3}=   Get From Dictionary    ${devices}    PC3
 
-    Initialize Custom Log File
     Log Message To Console    ==== Starting Full Ethernet Bridging and Performance Test ====
 
     Verify PC to PC Connectivity    ${PC1}    ${PC2}    ${PC3}
@@ -164,11 +164,3 @@ Install Iperf3
     Should Not Contain    ${check}    NOT_FOUND    msg=iperf3 installation failed
     Log Message To Console    [${ts}] iperf3 installation completed successfully
     Log Message To Custom File    [${ts}] iperf3 installation completed successfully
-
-
-
-
-
-
-
-
