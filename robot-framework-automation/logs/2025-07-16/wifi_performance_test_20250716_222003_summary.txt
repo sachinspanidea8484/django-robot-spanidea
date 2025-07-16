@@ -1,0 +1,5 @@
+WiFi Performance Test Summary
+============================
+Status: COMPLETED
+End Time: 2025-07-16 22:20:03
+Full Log: /home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/2025-07-16/wifi_performance_test_20250716_222003.log

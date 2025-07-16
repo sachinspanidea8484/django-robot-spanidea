@@ -14,7 +14,7 @@ from .utils import write_devices_to_json
 logger = logging.getLogger(__name__)
 
 # OpenWISP server configuration
-OPENWISP_SERVER_URL = "http://0.0.0.0:8000"  # Update with your OpenWISP server
+# OPENWISP_SERVER_URL = "http://10.240.170.47:8000"  # Update with your OpenWISP server
 OPENWISP_API_ENDPOINT = "/api/v1/test-management/test-case-execution/result/"
 
 class RunRobotTests(APIView):
@@ -93,7 +93,7 @@ class RunRobotTests(APIView):
             
             # Process each test case
             for idx, test_case in enumerate(test_cases, 1):
-                print(f"\n[BACKGROUND] Processing test {idx}/{len(test_cases)}")
+                # print(f"\n[BACKGROUND] Processing test {idx}/{len(test_cases)}")
                 self.execute_single_test(devices, test_case)
                 
             print(f"\n[BACKGROUND] All test cases completed")
@@ -162,12 +162,12 @@ class RunRobotTests(APIView):
             test_status = "success" if exit_code == 0 else "failed"
             
             print(f"  Test completed with status: {test_status}")
-            print(f"  Exit code: {exit_code}")
+            # print(f"  Exit code: {exit_code}")
             
-            if stdout:
-                print(f"  STDOUT preview: {stdout[:200]}...")
-            if stderr:
-                print(f"  STDERR: {stderr[:200]}...")
+            # if stdout:
+            #     print(f"  STDOUT preview: {stdout[:200]}...")
+            # if stderr:
+            #     print(f"  STDERR: {stderr[:200]}...")
             
             # 6. Update test status in OpenWISP
 
@@ -219,14 +219,23 @@ class RunRobotTests(APIView):
             print(f"  Status: {kwargs.get('status')}")
             
             # For development - just log what would be sent
-            print(f"  Payload: {json.dumps(payload, indent=2)}")
+            # print(f"  Payload: {json.dumps(payload, indent=2)}")
             
             # Uncomment below to actually send to OpenWISP
             # url = f"{OPENWISP_SERVER_URL}{OPENWISP_API_ENDPOINT}"
             # url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/" # local
             # url = f"http://54.234.248.241:8000/api/v1/test-management/robot-test-result/" # live 
 
-            url = f"http://192.168.201.37:8000/api/v1/test-management/robot-test-result/" # local kalyani
+            url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/" # local kalyani
+
+            try:
+             print(f"🔄 [DEBUG] Checking if Openwisp API is reachable...")
+             base_url = url.rsplit('/', 2)[0]  # Get base URL
+             test_response = requests.get(base_url, timeout=5)
+             print(f"✅✅✅✅✅✅✅✅✅✅✅✅✅        🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️🖥️ [DEBUG] Openwisp API server is reachable at {base_url}")
+            except Exception as e:
+             print(f"❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ [ERROR] Cannot reach Openwisp API server: {e}")
+             print(f"⚠️  [ERROR] Make sure the server at {url} is running")
 
 
 
@@ -246,8 +255,8 @@ class RunRobotTests(APIView):
             if response.status_code == 200:
                 print(f"  ✓ Successfully updated status in OpenWISP")
             else:
-                print(f"  ✗ Failed to update status. Response: {response.status_code}")
-                print(f"    Response text: {response.text}")
+                print(f"  ✗ Failed to update status. Response: {response.status_code}")    
+                # print(f"    Response text: {response.text}")
             
         except Exception as e:
             print(f"  Error updating test status: {str(e)}")

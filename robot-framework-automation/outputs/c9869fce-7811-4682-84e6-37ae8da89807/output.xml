@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.13 on linux)" generated="2025-07-16T18:02:42.060962" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/app/robot-framework-automation/tests">
+<suite id="s1-s1" name="Wifi" source="/app/robot-framework-automation/tests/wifi">
+<suite id="s1-s1-s1" name="Wifi Lan Rpi" source="/app/robot-framework-automation/tests/wifi/wifi_lan_rpi.robot">
+<kw name="Initialize Custom Log File" owner="common_keywords" type="SETUP">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-16T18:02:42.370755" level="INFO">${now} = 20250716_180242</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.370446" elapsed="0.000343"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-16T18:02:42.370860" elapsed="0.000047"/>
+</return>
+<msg time="2025-07-16T18:02:42.371011" level="INFO">${timestamp} = 20250716_180242</msg>
+<var>${timestamp}</var>
+<arg>%Y%m%d_%H%M%S</arg>
+<status status="PASS" start="2025-07-16T18:02:42.369638" elapsed="0.001394"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-16T18:02:42.371297" level="INFO">${log_file} = /app/robot-framework-automation/tests/wifi/../../logs/custom_log_20250716_180242.log</msg>
+<var>${log_file}</var>
+<arg>${LOG_FOLDER}/custom_log_${timestamp}.log</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.371139" elapsed="0.000178"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-07-16T18:02:42.371557" level="INFO">${LOG_FILE} = /app/robot-framework-automation/tests/wifi/../../logs/custom_log_20250716_180242.log</msg>
+<arg>${LOG_FILE}</arg>
+<arg>${log_file}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.371414" elapsed="0.000178"/>
+</kw>
+<status status="PASS" start="2025-07-16T18:02:42.368942" elapsed="0.002702"/>
+</kw>
+<test id="s1-s1-s1-t1" name="WiFi LAN RPi Performance Test via OpenWRT" line="20">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-07-16T18:02:42.372184" level="INFO">${config} = {'devices': {'RPI1': {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}, 'RPI2': {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}, 'openwrt': {'ip': '192.168.201.32', 'user': 'ro...</msg>
+<var>${config}</var>
+<arg>${CONFIG_FILE}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.371972" elapsed="0.000234"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.372444" level="INFO">${devices} = {'RPI1': {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}, 'RPI2': {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}, 'openwrt': {'ip': '192.168.201.32', 'user': 'root', 'passwo...</msg>
+<var>${devices}</var>
+<arg>${config}</arg>
+<arg>devices</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.372316" elapsed="0.000148"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.372647" level="INFO">${OPENWRT} = {'ip': '192.168.201.32', 'user': 'root', 'password': 'root'}</msg>
+<var>${OPENWRT}</var>
+<arg>${devices}</arg>
+<arg>openwrt</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.372549" elapsed="0.000114"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.372829" level="INFO">${RPI1} = {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}</msg>
+<var>${RPI1}</var>
+<arg>${devices}</arg>
+<arg>RPI1</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.372734" elapsed="0.000112"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.373018" level="INFO">${RPI2} = {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}</msg>
+<var>${RPI2}</var>
+<arg>${devices}</arg>
+<arg>RPI2</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.372921" elapsed="0.000113"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.373189" level="INFO">${SSID} = OpenWrt-Naresh</msg>
+<var>${SSID}</var>
+<arg>${config}</arg>
+<arg>SSID</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.373100" elapsed="0.000104"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.373358" level="INFO">${PSK} = 1234567890</msg>
+<var>${PSK}</var>
+<arg>${config}</arg>
+<arg>PSK</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.373270" elapsed="0.000102"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-07-16T18:02:42.373631" level="INFO">${ENCRYPTION} = wpa2</msg>
+<var>${ENCRYPTION}</var>
+<arg>${config}</arg>
+<arg>encryption</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.373436" elapsed="0.000211"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-16T18:02:42.374299" level="INFO">${now} = 2025-07-16 18:02:42</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.374083" elapsed="0.000236"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-16T18:02:42.374360" elapsed="0.000037"/>
+</return>
+<msg time="2025-07-16T18:02:42.374515" level="INFO">${timestamp} = 2025-07-16 18:02:42</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-16T18:02:42.373936" elapsed="0.000607"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-16T18:02:42.374979" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250716_180242.log"&gt;/app/robot-framework-automation/logs/custom_log_20250716_180242.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.374648" elapsed="0.000381"/>
+</kw>
+<arg>==== Starting WiFi LAN RPi Performance Test ====</arg>
+<status status="PASS" start="2025-07-16T18:02:42.373738" elapsed="0.001345"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-16T18:02:42.376027" level="INFO">${now} = 2025-07-16 18:02:42</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.375845" elapsed="0.000202"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-16T18:02:42.376087" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-16T18:02:42.376203" level="INFO">${timestamp} = 2025-07-16 18:02:42</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-16T18:02:42.375686" elapsed="0.000534"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-16T18:02:42.376489" level="INFO" html="true">Appended to file '&lt;a href="file:///app/robot-framework-automation/logs/custom_log_20250716_180242.log"&gt;/app/robot-framework-automation/logs/custom_log_20250716_180242.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.376306" elapsed="0.000247"/>
+</kw>
+<arg>Connecting to OpenWRT: ${OPENWRT['ip']}</arg>
+<status status="PASS" start="2025-07-16T18:02:42.375194" elapsed="0.001406"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${OPENWRT['ip']}</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-07-16T18:02:42.376679" elapsed="0.000366"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-07-16T18:02:42.377599" level="INFO">Logging into '192.168.201.32:22' as 'root'.</msg>
+<msg time="2025-07-16T18:02:45.384634" level="FAIL">TimeoutError: timed out</msg>
+<arg>${OPENWRT['user']}</arg>
+<arg>${OPENWRT['password']}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="FAIL" start="2025-07-16T18:02:42.377123" elapsed="3.009901">TimeoutError: timed out</status>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>SSH connected to OpenWRT</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.387489" elapsed="0.000113"/>
+</kw>
+<kw name="Configure OpenWRT Wireless" owner="wifi_lan">
+<arg>${OPENWRT['ip']}</arg>
+<arg>${SSID}</arg>
+<arg>${PSK}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.387856" elapsed="0.000057"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="NOT RUN" start="2025-07-16T18:02:45.388123" elapsed="0.000051"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Configured WiFi on OpenWRT with SSID ${SSID}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.388450" elapsed="0.000062"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Configuring WiFi on RPi1 (${RPI1['ip']})</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.388720" elapsed="0.000051"/>
+</kw>
+<kw name="Configure Rpi Static Ip And Wpa" owner="wifi_lan">
+<arg>${RPI1['ip']}</arg>
+<arg>${RPI1['user']}</arg>
+<arg>${RPI1['password']}</arg>
+<arg>${RPI1['ip']}</arg>
+<arg>${SSID}</arg>
+<arg>${PSK}</arg>
+<arg>${ENCRYPTION}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.388950" elapsed="0.000052"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Configured WiFi on RPi1</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.389216" elapsed="0.000050"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Configuring WiFi on RPi2 (${RPI2['ip']})</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.389440" elapsed="0.000047"/>
+</kw>
+<kw name="Configure Rpi Static Ip And Wpa" owner="wifi_lan">
+<arg>${RPI2['ip']}</arg>
+<arg>${RPI2['user']}</arg>
+<arg>${RPI2['password']}</arg>
+<arg>${RPI2['ip']}</arg>
+<arg>${SSID}</arg>
+<arg>${PSK}</arg>
+<arg>${ENCRYPTION}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.389646" elapsed="0.000043"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Configured WiFi on RPi2</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.389883" elapsed="0.000047"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>15s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-16T18:02:45.390089" elapsed="0.000052"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Waited 15s for WiFi to stabilize</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.390317" elapsed="0.000045"/>
+</kw>
+<kw name="Ensure Iperf3 Installed" owner="wifi_lan">
+<arg>${RPI1['ip']}</arg>
+<arg>${RPI1['user']}</arg>
+<arg>${RPI1['password']}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.390517" elapsed="0.000043"/>
+</kw>
+<kw name="Ensure Iperf3 Installed" owner="wifi_lan">
+<arg>${RPI2['ip']}</arg>
+<arg>${RPI2['user']}</arg>
+<arg>${RPI2['password']}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.390718" elapsed="0.000042"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>iperf3 installed on both RPis</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.390937" elapsed="0.000046"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Capturing baseline system stats from OpenWRT</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.391151" elapsed="0.000045"/>
+</kw>
+<kw name="Capture Baseline System Stats" owner="wifi_lan">
+<arg>${OPENWRT['ip']}</arg>
+<arg>${OPENWRT['user']}</arg>
+<arg>${OPENWRT['password']}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.391362" elapsed="0.000044"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Starting iperf3 servers</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.391601" elapsed="0.000049"/>
+</kw>
+<kw name="Start Iperf Server" owner="wifi_lan">
+<arg>${RPI1['ip']}</arg>
+<arg>${RPI1['user']}</arg>
+<arg>${RPI1['password']}</arg>
+<arg>5201</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.391812" elapsed="0.000519"/>
+</kw>
+<kw name="Start Iperf Server" owner="wifi_lan">
+<arg>${RPI2['ip']}</arg>
+<arg>${RPI2['user']}</arg>
+<arg>${RPI2['password']}</arg>
+<arg>5202</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.392557" elapsed="0.000052"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>iperf3 servers started</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.392828" elapsed="0.000051"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Starting resource monitoring on OpenWRT</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.393072" elapsed="0.000049"/>
+</kw>
+<kw name="Start Monitoring During Iperf" owner="wifi_lan">
+<arg>${OPENWRT['ip']}</arg>
+<arg>${OPENWRT['user']}</arg>
+<arg>${OPENWRT['password']}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.393291" elapsed="0.000045"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Starting bidirectional iperf3 clients</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.393532" elapsed="0.000048"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="wifi_lan">
+<arg>${RPI1['ip']}</arg>
+<arg>${RPI1['user']}</arg>
+<arg>${RPI1['password']}</arg>
+<arg>${RPI2['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>5202</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.393740" elapsed="0.000040"/>
+</kw>
+<kw name="Start Iperf Client Parallel" owner="wifi_lan">
+<arg>${RPI2['ip']}</arg>
+<arg>${RPI2['user']}</arg>
+<arg>${RPI2['password']}</arg>
+<arg>${RPI1['ip']}</arg>
+<arg>${DURATION}</arg>
+<arg>${BANDWIDTH}</arg>
+<arg>5201</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.393944" elapsed="0.000040"/>
+</kw>
+<kw name="Wait For All Iperf Clients" owner="wifi_lan">
+<status status="NOT RUN" start="2025-07-16T18:02:45.394184" elapsed="0.000052"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>All iperf3 clients finished</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.394402" elapsed="0.000043"/>
+</kw>
+<kw name="Stop Monitoring" owner="wifi_lan">
+<status status="NOT RUN" start="2025-07-16T18:02:45.394588" elapsed="0.000037"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Monitoring stopped</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.394780" elapsed="0.000042"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>Capturing post-test system stats</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.394983" elapsed="0.000043"/>
+</kw>
+<kw name="Capture Post Test System Stats" owner="wifi_lan">
+<arg>${OPENWRT['ip']}</arg>
+<arg>${OPENWRT['user']}</arg>
+<arg>${OPENWRT['password']}</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.395170" elapsed="0.000040"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<arg>==== Completed WiFi LAN RPi Performance Test ====</arg>
+<status status="NOT RUN" start="2025-07-16T18:02:45.395382" elapsed="0.000042"/>
+</kw>
+<tag>BB-INT-WWAN-001</tag>
+<status status="FAIL" start="2025-07-16T18:02:42.371692" elapsed="3.024197">TimeoutError: timed out</status>
+</test>
+<status status="FAIL" start="2025-07-16T18:02:42.106784" elapsed="3.289787"/>
+</suite>
+<status status="FAIL" start="2025-07-16T18:02:42.106005" elapsed="3.291239"/>
+</suite>
+<status status="FAIL" start="2025-07-16T18:02:42.061734" elapsed="3.335908"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">BB-INT-WWAN-001</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="0" fail="1" skip="0">Tests</stat>
+<stat name="Wifi" id="s1-s1" pass="0" fail="1" skip="0">Tests.Wifi</stat>
+<stat name="Wifi Lan Rpi" id="s1-s1-s1" pass="0" fail="1" skip="0">Tests.Wifi.Wifi Lan Rpi</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-16T18:02:42.057185" level="WARN">Error in file '/app/robot-framework-automation/tests/ethernet/ethernet_bridging.robot' on line 85: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

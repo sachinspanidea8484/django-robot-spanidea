@@ -1,0 +1,17 @@
+================================================================================
+WiFi LAN RPi Performance Test Log
+================================================================================
+Test Start Time: 20250716_222003
+Configuration File: /home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/../../devices/tc_02.json
+Log File Path: /home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/2025-07-16/wifi_performance_test_20250716_222003.log
+Test Duration: 10 seconds
+Target Bandwidth: 450M
+Interface: wlan0
+================================================================================
+[2025-07-16 22:20:03.045] [INFO] 
+None
+[2025-07-16 22:20:03.047] [INFO] TEST EXECUTION SUMMARY
+[2025-07-16 22:20:03.051] [INFO] None
+[2025-07-16 22:20:03.055] [INFO] Test Status: COMPLETED
+[2025-07-16 22:20:03.058] [INFO] End Time: 2025-07-16 22:20:03
+[2025-07-16 22:20:03.061] [INFO] Log File: /home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/2025-07-16/wifi_performance_test_20250716_222003.log
