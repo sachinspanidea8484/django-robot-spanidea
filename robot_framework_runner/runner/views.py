@@ -161,8 +161,8 @@ class RunRobotTests(APIView):
             
             test_status = "success" if exit_code == 0 else "failed"
             
-            # print(f"  Test completed with status: {test_status}")
-            # print(f"  Exit code: {exit_code}")
+            print(f"  Test completed with status: {test_status}")
+            print(f"  Exit code: {exit_code}")
             
             if stdout:
                 print(f"  STDOUT preview: {stdout[:200]}...")
@@ -172,9 +172,7 @@ class RunRobotTests(APIView):
             # 6. Update test status in OpenWISP
 
 
-            # exit_code = 0
-            # stdout = "executed test"
-            # stderr = ""
+
             
             # test_status = "success" if exit_code == 0 else "failed"
             self.update_test_status(
@@ -186,27 +184,27 @@ class RunRobotTests(APIView):
                 # completed_at=datetime.now().isoformat()
             )
             
-        # except subprocess.TimeoutExpired:
-        #     print(f"  Test execution timed out!")
-        #     self.update_test_status(
-        #         execution_id,
-        #         status="timeout",
-        #         error_message="Test execution timed out after 5 minutes",
-        #         completed_at=datetime.now().isoformat()
-        #     )
+        except subprocess.TimeoutExpired:
+            print(f"  Test execution timed out!")
+            self.update_test_status(
+                execution_id,
+                status="timeout",
+                error_message="Test execution timed out after 5 minutes",
+                completed_at=datetime.now().isoformat()
+            )
             
         except Exception as e:
             print(f"  Error executing test: {str(e)}")
             import traceback
             traceback.print_exc()
             
-            # self.update_test_status(
-            #     execution_id,
-            #     status="failed",
-            #     stderr=str(e),
-            #     error_message=f"Robot Framework execution error: {str(e)}",
-            #     completed_at=datetime.now().isoformat()
-            # )
+            self.update_test_status(
+                execution_id,
+                status="failed",
+                stderr=str(e),
+                error_message=f"Robot Framework execution error: {str(e)}",
+                completed_at=datetime.now().isoformat()
+            )
 
     def update_test_status(self, execution_id, **kwargs):
         """Update test execution status in OpenWISP"""
