@@ -14,7 +14,7 @@ from .utils import write_devices_to_json
 logger = logging.getLogger(__name__)
 
 # OpenWISP server configuration
-OPENWISP_SERVER_URL = "http://54.234.248.241:8000"  # Update with your OpenWISP server
+OPENWISP_SERVER_URL = "http://0.0.0.0:8000"  # Update with your OpenWISP server
 OPENWISP_API_ENDPOINT = "/api/v1/test-management/test-case-execution/result/"
 
 class RunRobotTests(APIView):
@@ -225,8 +225,11 @@ class RunRobotTests(APIView):
             
             # Uncomment below to actually send to OpenWISP
             # url = f"{OPENWISP_SERVER_URL}{OPENWISP_API_ENDPOINT}"
-            # url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/"
-            url = f"http://54.234.248.241:8000/api/v1/test-management/robot-test-result/" # live 
+            # url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/" # local
+            # url = f"http://54.234.248.241:8000/api/v1/test-management/robot-test-result/" # live 
+
+            url = f"http://192.168.201.37:8000/api/v1/test-management/robot-test-result/" # local kalyani
+
 
 
 
