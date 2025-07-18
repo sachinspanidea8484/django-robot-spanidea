@@ -226,7 +226,9 @@ class RunRobotTests(APIView):
             # url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/" # local
             # url = f"http://54.234.248.241:8000/api/v1/test-management/robot-test-result/" # live 
 
-            url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/" # local kalyani
+            # url = f"http://192.168.122.1:8000/api/v1/test-management/robot-test-result/" # local sachin
+            url = f"http://192.168.201.37:8000/api/v1/test-management/robot-test-result/" # local kalyani
+
 
             try:
              print(f"🔄 [DEBUG] Checking if Openwisp API is reachable...")

@@ -1,2 +1,5 @@
 venv
 setup.md
+robot-framework-automation/logs
+robot-framework-automation/outputs/
+setup.md

@@ -82,7 +82,7 @@ Initialize Custom Log File
 
 Get Timestamp
     ${time}=    Get Current Date    %Y-%m-%d %H:%M:%S
-    [Return]    ${time}
+    Return    ${time}
 
 Capture Baseline System Stats
     [Arguments]    ${BB_IP}    ${USERNAME}    ${PASSWORD}

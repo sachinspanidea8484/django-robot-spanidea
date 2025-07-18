@@ -1,199 +1,601 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.11.9 on linux)" generated="2025-07-16T22:27:14.539766" rpa="false" schemaversion="5">
-<suite id="s1" name="Wifi Lan Rpi" source="/home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/wifi_lan_rpi.robot">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-07-18T09:37:20.402117" rpa="false" schemaversion="5">
+<suite id="s1" name="Wifi Lan Rpi" source="/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/tests/wifi/wifi_lan_rpi.robot">
 <kw name="Initialize Custom Log File" owner="common_keywords" type="SETUP">
 <kw name="Get Current Date" owner="common_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-07-16T22:27:14.727104" level="INFO">${now} = 20250716_222714</msg>
+<msg time="2025-07-18T09:37:20.608741" level="INFO">${now} = 20250718_093720</msg>
 <var>${now}</var>
 <arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
 <arg>modules=datetime</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.726833" elapsed="0.000301"/>
+<status status="PASS" start="2025-07-18T09:37:20.608459" elapsed="0.000316"/>
 </kw>
 <return>
 <value>${now}</value>
-<status status="PASS" start="2025-07-16T22:27:14.727205" elapsed="0.000044"/>
+<status status="PASS" start="2025-07-18T09:37:20.608850" elapsed="0.000048"/>
 </return>
-<msg time="2025-07-16T22:27:14.727348" level="INFO">${timestamp} = 20250716_222714</msg>
+<msg time="2025-07-18T09:37:20.609008" level="INFO">${timestamp} = 20250718_093720</msg>
 <var>${timestamp}</var>
 <arg>%Y%m%d_%H%M%S</arg>
-<status status="PASS" start="2025-07-16T22:27:14.726108" elapsed="0.001261"/>
+<status status="PASS" start="2025-07-18T09:37:20.607737" elapsed="0.001294"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-16T22:27:14.727610" level="INFO">${log_file} = /home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/custom_log_20250716_222714.log</msg>
+<msg time="2025-07-18T09:37:20.609283" level="INFO">${log_file} = /home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/custom_log_20250718_093720.log</msg>
 <var>${log_file}</var>
 <arg>${LOG_FOLDER}/custom_log_${timestamp}.log</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.727470" elapsed="0.000160"/>
+<status status="PASS" start="2025-07-18T09:37:20.609130" elapsed="0.000177"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-07-16T22:27:14.727867" level="INFO">${LOG_FILE} = /home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/custom_log_20250716_222714.log</msg>
+<msg time="2025-07-18T09:37:20.609556" level="INFO">${LOG_FILE} = /home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/tests/wifi/../../logs/custom_log_20250718_093720.log</msg>
 <arg>${LOG_FILE}</arg>
 <arg>${log_file}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.727722" elapsed="0.000177"/>
+<status status="PASS" start="2025-07-18T09:37:20.609405" elapsed="0.000190"/>
 </kw>
-<status status="PASS" start="2025-07-16T22:27:14.725866" elapsed="0.002083"/>
+<status status="PASS" start="2025-07-18T09:37:20.607509" elapsed="0.002140"/>
 </kw>
 <test id="s1-t1" name="WiFi LAN RPi Performance Test via OpenWRT" line="20">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-07-16T22:27:14.728580" level="INFO">${config} = {'devices': {'RPI1': {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}, 'RPI2': {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}, 'openwrt': {'ip': '192.168.201.32', 'user': 'ro...</msg>
+<msg time="2025-07-18T09:37:20.610857" level="INFO">${config} = {'devices': {'RPI1': {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}, 'RPI2': {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}, 'openwrt': {'ip': '192.168.201.32', 'user': 'ro...</msg>
 <var>${config}</var>
 <arg>${CONFIG_FILE}</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.728286" elapsed="0.000325"/>
+<status status="PASS" start="2025-07-18T09:37:20.610060" elapsed="0.000826"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.728902" level="INFO">${devices} = {'RPI1': {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}, 'RPI2': {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}, 'openwrt': {'ip': '192.168.201.32', 'user': 'root', 'passwo...</msg>
+<msg time="2025-07-18T09:37:20.611175" level="INFO">${devices} = {'RPI1': {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}, 'RPI2': {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}, 'openwrt': {'ip': '192.168.201.32', 'user': 'root', 'passwo...</msg>
 <var>${devices}</var>
 <arg>${config}</arg>
 <arg>devices</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.728749" elapsed="0.000179"/>
+<status status="PASS" start="2025-07-18T09:37:20.611024" elapsed="0.000174"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.729182" level="INFO">${OPENWRT} = {'ip': '192.168.201.32', 'user': 'root', 'password': 'root'}</msg>
+<msg time="2025-07-18T09:37:20.611445" level="INFO">${OPENWRT} = {'ip': '192.168.201.32', 'user': 'root', 'password': 'root'}</msg>
 <var>${OPENWRT}</var>
 <arg>${devices}</arg>
 <arg>openwrt</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.729054" elapsed="0.000150"/>
+<status status="PASS" start="2025-07-18T09:37:20.611312" elapsed="0.000154"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.729434" level="INFO">${RPI1} = {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}</msg>
+<msg time="2025-07-18T09:37:20.611695" level="INFO">${RPI1} = {'ip': '192.168.201.38', 'user': 'rpi', 'password': 'rpi'}</msg>
 <var>${RPI1}</var>
 <arg>${devices}</arg>
 <arg>RPI1</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.729312" elapsed="0.000144"/>
+<status status="PASS" start="2025-07-18T09:37:20.611571" elapsed="0.000145"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.729736" level="INFO">${RPI2} = {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}</msg>
+<msg time="2025-07-18T09:37:20.611943" level="INFO">${RPI2} = {'ip': '192.168.201.41', 'user': 'pi', 'password': 'spanidea'}</msg>
 <var>${RPI2}</var>
 <arg>${devices}</arg>
 <arg>RPI2</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.729574" elapsed="0.000185"/>
+<status status="PASS" start="2025-07-18T09:37:20.611823" elapsed="0.000141"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.730026" level="INFO">${SSID} = OpenWrt-Naresh</msg>
+<msg time="2025-07-18T09:37:20.612190" level="INFO">${SSID} = OpenWrt-Naresh</msg>
 <var>${SSID}</var>
 <arg>${config}</arg>
 <arg>SSID</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.729907" elapsed="0.000138"/>
+<status status="PASS" start="2025-07-18T09:37:20.612065" elapsed="0.000148"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.730290" level="INFO">${PSK} = 1234567890</msg>
+<msg time="2025-07-18T09:37:20.612528" level="INFO">${PSK} = 1234567890</msg>
 <var>${PSK}</var>
 <arg>${config}</arg>
 <arg>PSK</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.730155" elapsed="0.000155"/>
+<status status="PASS" start="2025-07-18T09:37:20.612364" elapsed="0.000188"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-07-16T22:27:14.730599" level="INFO">${ENCRYPTION} = wpa2</msg>
+<msg time="2025-07-18T09:37:20.612795" level="INFO">${ENCRYPTION} = wpa2</msg>
 <var>${ENCRYPTION}</var>
 <arg>${config}</arg>
 <arg>encryption</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.730446" elapsed="0.000184"/>
+<status status="PASS" start="2025-07-18T09:37:20.612662" elapsed="0.000155"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>==== Starting WiFi LAN RPi Performance Test ====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:20.612928" elapsed="0.000105"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
 <kw name="Get Current Date" owner="common_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-07-16T22:27:14.731517" level="INFO">${now} = 2025-07-16 22:27:14</msg>
+<msg time="2025-07-18T09:37:20.613903" level="INFO">${now} = 2025-07-18 09:37:20</msg>
 <var>${now}</var>
 <arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
 <arg>modules=datetime</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.731264" elapsed="0.000277"/>
+<status status="PASS" start="2025-07-18T09:37:20.613634" elapsed="0.000296"/>
 </kw>
 <return>
 <value>${now}</value>
-<status status="PASS" start="2025-07-16T22:27:14.731591" elapsed="0.000042"/>
+<status status="PASS" start="2025-07-18T09:37:20.613989" elapsed="0.000043"/>
 </return>
-<msg time="2025-07-16T22:27:14.731727" level="INFO">${timestamp} = 2025-07-16 22:27:14</msg>
+<msg time="2025-07-18T09:37:20.614137" level="INFO">${timestamp} = 2025-07-18 09:37:20</msg>
 <var>${timestamp}</var>
 <arg>%Y-%m-%d %H:%M:%S</arg>
-<status status="PASS" start="2025-07-16T22:27:14.731053" elapsed="0.000694"/>
+<status status="PASS" start="2025-07-18T09:37:20.613421" elapsed="0.000738"/>
 </kw>
 <kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-07-16T22:27:14.732187" level="INFO" html="true">Appended to file '&lt;a href="file:///home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250716_222714.log"&gt;/home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250716_222714.log&lt;/a&gt;'.</msg>
+<msg time="2025-07-18T09:37:20.614555" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
 <arg>${LOG_FILE}</arg>
 <arg>[INFO][${timestamp}] ${message}\n</arg>
 <doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.731835" elapsed="0.000418"/>
+<status status="PASS" start="2025-07-18T09:37:20.614253" elapsed="0.000357"/>
 </kw>
 <arg>==== Starting WiFi LAN RPi Performance Test ====</arg>
-<status status="PASS" start="2025-07-16T22:27:14.730822" elapsed="0.001524"/>
+<status status="PASS" start="2025-07-18T09:37:20.613184" elapsed="0.001487"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Connecting to OpenWRT: ${OPENWRT['ip']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:20.614803" elapsed="0.000435"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
 <kw name="Get Current Date" owner="common_keywords">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-07-16T22:27:14.733539" level="INFO">${now} = 2025-07-16 22:27:14</msg>
+<msg time="2025-07-18T09:37:20.616516" level="INFO">${now} = 2025-07-18 09:37:20</msg>
 <var>${now}</var>
 <arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
 <arg>modules=datetime</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.733323" elapsed="0.000239"/>
+<status status="PASS" start="2025-07-18T09:37:20.616213" elapsed="0.000341"/>
 </kw>
 <return>
 <value>${now}</value>
-<status status="PASS" start="2025-07-16T22:27:14.733610" elapsed="0.000039"/>
+<status status="PASS" start="2025-07-18T09:37:20.616674" elapsed="0.000048"/>
 </return>
-<msg time="2025-07-16T22:27:14.733742" level="INFO">${timestamp} = 2025-07-16 22:27:14</msg>
+<msg time="2025-07-18T09:37:20.616869" level="INFO">${timestamp} = 2025-07-18 09:37:20</msg>
 <var>${timestamp}</var>
 <arg>%Y-%m-%d %H:%M:%S</arg>
-<status status="PASS" start="2025-07-16T22:27:14.733133" elapsed="0.000629"/>
+<status status="PASS" start="2025-07-18T09:37:20.615919" elapsed="0.000983"/>
 </kw>
 <kw name="Append To File" owner="OperatingSystem">
-<msg time="2025-07-16T22:27:14.734100" level="INFO" html="true">Appended to file '&lt;a href="file:///home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250716_222714.log"&gt;/home/spanidea-lt22/Desktop/NOKIA/communications/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250716_222714.log&lt;/a&gt;'.</msg>
+<msg time="2025-07-18T09:37:20.617446" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
 <arg>${LOG_FILE}</arg>
 <arg>[INFO][${timestamp}] ${message}\n</arg>
 <doc>Appends the given content to the specified file.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.733882" elapsed="0.000271"/>
+<status status="PASS" start="2025-07-18T09:37:20.617037" elapsed="0.000474"/>
 </kw>
 <arg>Connecting to OpenWRT: ${OPENWRT['ip']}</arg>
-<status status="PASS" start="2025-07-16T22:27:14.732560" elapsed="0.001656"/>
+<status status="PASS" start="2025-07-18T09:37:20.615379" elapsed="0.002213"/>
 </kw>
 <kw name="Open Connection" owner="SSHLibrary">
 <arg>${OPENWRT['ip']}</arg>
 <doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
-<status status="PASS" start="2025-07-16T22:27:14.734359" elapsed="0.000454"/>
+<status status="PASS" start="2025-07-18T09:37:20.617760" elapsed="0.000664"/>
 </kw>
 <kw name="Login" owner="SSHLibrary">
-<msg time="2025-07-16T22:27:14.735707" level="INFO">Logging into '192.168.201.32:22' as 'root'.</msg>
-<msg time="2025-07-16T22:27:17.737833" level="FAIL">TimeoutError: timed out</msg>
+<msg time="2025-07-18T09:37:20.619649" level="INFO">Logging into '192.168.201.32:22' as 'root'.</msg>
+<msg time="2025-07-18T09:37:21.749443" level="INFO">Read output: 
+
+BusyBox v1.36.1 (2025-07-13 13:49:39 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 23.05-SNAPSHOT, 1-0-0-55-2025-07-15-01-59-35
+ -----------------------------------------------------
+root@00-04-9F-06-C2-CB:~#</msg>
 <arg>${OPENWRT['user']}</arg>
 <arg>${OPENWRT['password']}</arg>
 <doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
-<status status="FAIL" start="2025-07-16T22:27:14.734956" elapsed="3.005683">TimeoutError: timed out</status>
+<status status="PASS" start="2025-07-18T09:37:20.618595" elapsed="1.130986"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>SSH connected to OpenWRT</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.749848" elapsed="0.000185"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:21.751911" level="INFO">${now} = 2025-07-18 09:37:21</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.751481" elapsed="0.000471"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:21.752033" elapsed="0.000057"/>
+</return>
+<msg time="2025-07-18T09:37:21.752241" level="INFO">${timestamp} = 2025-07-18 09:37:21</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:21.750498" elapsed="0.001768"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:21.752673" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.752370" elapsed="0.000355"/>
+</kw>
 <arg>SSH connected to OpenWRT</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.741213" elapsed="0.000100"/>
+<status status="PASS" start="2025-07-18T09:37:21.750208" elapsed="0.002594"/>
 </kw>
 <kw name="Configure OpenWRT Wireless" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:21.869883" level="INFO">${now} = 2025-07-18 09:37:21</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.869598" elapsed="0.000316"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:21.869980" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-18T09:37:21.870126" level="INFO">${timestamp} = 2025-07-18 09:37:21</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:21.869354" elapsed="0.000794"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:21.870505" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.870249" elapsed="0.000311"/>
+</kw>
+<arg>Executed on OpenWRT: uci set wireless.@wifi-device[0].disabled='0'</arg>
+<status status="PASS" start="2025-07-18T09:37:21.868950" elapsed="0.001681"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:21.926202" level="INFO">${now} = 2025-07-18 09:37:21</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.925908" elapsed="0.000327"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:21.926302" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:21.926448" level="INFO">${timestamp} = 2025-07-18 09:37:21</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:21.925511" elapsed="0.000960"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:21.926855" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.926573" elapsed="0.000342"/>
+</kw>
+<arg>Executed on OpenWRT: uci set wireless.@wifi-iface[0].network='lan'</arg>
+<status status="PASS" start="2025-07-18T09:37:21.925004" elapsed="0.001985"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:21.976258" level="INFO">${now} = 2025-07-18 09:37:21</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.975899" elapsed="0.000398"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:21.976378" elapsed="0.000142"/>
+</return>
+<msg time="2025-07-18T09:37:21.976694" level="INFO">${timestamp} = 2025-07-18 09:37:21</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:21.975564" elapsed="0.001157"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:21.977336" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:21.976936" elapsed="0.000470"/>
+</kw>
+<arg>Executed on OpenWRT: uci set wireless.@wifi-iface[0].ssid='OpenWrt-Naresh'</arg>
+<status status="PASS" start="2025-07-18T09:37:21.975057" elapsed="0.002427"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.025802" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.025509" elapsed="0.000329"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.025906" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:22.026051" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.025273" elapsed="0.000800"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.026436" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.026173" elapsed="0.000314"/>
+</kw>
+<arg>Executed on OpenWRT: uci set wireless.@wifi-iface[0].encryption='psk2'</arg>
+<status status="PASS" start="2025-07-18T09:37:22.024882" elapsed="0.001664"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.076984" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.076688" elapsed="0.000329"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.077087" elapsed="0.000043"/>
+</return>
+<msg time="2025-07-18T09:37:22.077238" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.076336" elapsed="0.000925"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.077661" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.077372" elapsed="0.000352"/>
+</kw>
+<arg>Executed on OpenWRT: uci set wireless.@wifi-iface[0].key='1234567890'</arg>
+<status status="PASS" start="2025-07-18T09:37:22.075512" elapsed="0.002289"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.126301" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.125827" elapsed="0.000513"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.126417" elapsed="0.000045"/>
+</return>
+<msg time="2025-07-18T09:37:22.126587" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.125545" elapsed="0.001070"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.127045" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.126735" elapsed="0.000375"/>
+</kw>
+<arg>Executed on OpenWRT: uci commit wireless</arg>
+<status status="PASS" start="2025-07-18T09:37:22.125136" elapsed="0.002054"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.206274" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.205998" elapsed="0.000308"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.206370" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-18T09:37:22.206511" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.205620" elapsed="0.000914"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.206897" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.206632" elapsed="0.000322"/>
+</kw>
+<arg>Executed on OpenWRT: wifi reload</arg>
+<status status="PASS" start="2025-07-18T09:37:22.205041" elapsed="0.001985"/>
+</kw>
 <arg>${OPENWRT['ip']}</arg>
 <arg>${SSID}</arg>
 <arg>${PSK}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.741654" elapsed="0.000070"/>
+<status status="PASS" start="2025-07-18T09:37:21.752962" elapsed="0.454182"/>
 </kw>
 <kw name="Close Connection" owner="SSHLibrary">
 <doc>Closes the current connection.</doc>
-<status status="NOT RUN" start="2025-07-16T22:27:17.742020" elapsed="0.000065"/>
+<status status="PASS" start="2025-07-18T09:37:22.207293" elapsed="0.000141"/>
 </kw>
-<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Configured WiFi on OpenWRT with SSID ${SSID}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.742420" elapsed="0.000075"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.207555" elapsed="0.000143"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.208605" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.208364" elapsed="0.000270"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.208702" elapsed="0.000036"/>
+</return>
+<msg time="2025-07-18T09:37:22.208860" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.208162" elapsed="0.000721"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.209217" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.208979" elapsed="0.000286"/>
+</kw>
+<arg>Configured WiFi on OpenWRT with SSID ${SSID}</arg>
+<status status="PASS" start="2025-07-18T09:37:22.207895" elapsed="0.001427"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Configuring WiFi on RPi1 (${RPI1['ip']})</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.742796" elapsed="0.000067"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.209439" elapsed="0.000418"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.210878" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.210665" elapsed="0.000238"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.210959" elapsed="0.000043"/>
+</return>
+<msg time="2025-07-18T09:37:22.211102" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.210478" elapsed="0.000645"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.211478" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.211213" elapsed="0.000330"/>
+</kw>
+<arg>Configuring WiFi on RPi1 (${RPI1['ip']})</arg>
+<status status="PASS" start="2025-07-18T09:37:22.209989" elapsed="0.001617"/>
 </kw>
 <kw name="Configure Rpi Static Ip And Wpa" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.876143" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.875373" elapsed="0.000854"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.876389" elapsed="0.000093"/>
+</return>
+<msg time="2025-07-18T09:37:22.876770" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.874750" elapsed="0.002100"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.877767" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.877133" elapsed="0.000776"/>
+</kw>
+<arg>Set static IP on RPi 192.168.201.38: 192.168.201.38</arg>
+<status status="PASS" start="2025-07-18T09:37:22.873932" elapsed="0.004134"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:22.938239" level="INFO">${now} = 2025-07-18 09:37:22</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.937975" elapsed="0.000295"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:22.938336" elapsed="0.000038"/>
+</return>
+<msg time="2025-07-18T09:37:22.938477" level="INFO">${timestamp} = 2025-07-18 09:37:22</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:22.937735" elapsed="0.000764"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:22.938861" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:22.938598" elapsed="0.000317"/>
+</kw>
+<arg>WPA supplicant configured with SSID 'OpenWrt-Naresh', encryption 'wpa2'</arg>
+<status status="PASS" start="2025-07-18T09:37:22.937395" elapsed="0.001583"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.026706" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.026414" elapsed="0.000325"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.026814" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:23.026961" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.026193" elapsed="0.000789"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.027347" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.027084" elapsed="0.000482"/>
+</kw>
+<arg>Reconfigured WiFi and restarted dhcpcd on 192.168.201.38</arg>
+<status status="PASS" start="2025-07-18T09:37:23.025845" elapsed="0.001794"/>
+</kw>
 <arg>${RPI1['ip']}</arg>
 <arg>${RPI1['user']}</arg>
 <arg>${RPI1['password']}</arg>
@@ -201,17 +603,164 @@
 <arg>${SSID}</arg>
 <arg>${PSK}</arg>
 <arg>${ENCRYPTION}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.743178" elapsed="0.000064"/>
+<status status="PASS" start="2025-07-18T09:37:22.211719" elapsed="0.816187"/>
 </kw>
-<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Configured WiFi on RPi1</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.743564" elapsed="0.000070"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.028082" elapsed="0.000135"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.029091" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.028853" elapsed="0.000265"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.029169" elapsed="0.000034"/>
+</return>
+<msg time="2025-07-18T09:37:23.029301" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.028645" elapsed="0.000678"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.029648" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.029413" elapsed="0.000282"/>
+</kw>
+<arg>Configured WiFi on RPi1</arg>
+<status status="PASS" start="2025-07-18T09:37:23.028366" elapsed="0.001386"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Configuring WiFi on RPi2 (${RPI2['ip']})</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.743920" elapsed="0.000073"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.029901" elapsed="0.000430"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.031533" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.031319" elapsed="0.000241"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.031611" elapsed="0.000031"/>
+</return>
+<msg time="2025-07-18T09:37:23.031736" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.030985" elapsed="0.000772"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.032069" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.031853" elapsed="0.000262"/>
+</kw>
+<arg>Configuring WiFi on RPi2 (${RPI2['ip']})</arg>
+<status status="PASS" start="2025-07-18T09:37:23.030476" elapsed="0.001693"/>
 </kw>
 <kw name="Configure Rpi Static Ip And Wpa" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.613176" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.612911" elapsed="0.000299"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.613292" elapsed="0.000041"/>
+</return>
+<msg time="2025-07-18T09:37:23.613443" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.612665" elapsed="0.000801"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.613842" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.613573" elapsed="0.000327"/>
+</kw>
+<arg>Set static IP on RPi 192.168.201.41: 192.168.201.41</arg>
+<status status="PASS" start="2025-07-18T09:37:23.612310" elapsed="0.001662"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.685419" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.685141" elapsed="0.000314"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.685528" elapsed="0.000048"/>
+</return>
+<msg time="2025-07-18T09:37:23.685686" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.684886" elapsed="0.000823"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.686095" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.685823" elapsed="0.000325"/>
+</kw>
+<arg>WPA supplicant configured with SSID 'OpenWrt-Naresh', encryption 'wpa2'</arg>
+<status status="PASS" start="2025-07-18T09:37:23.684488" elapsed="0.001731"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.780356" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.780089" elapsed="0.000446"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.780625" elapsed="0.000046"/>
+</return>
+<msg time="2025-07-18T09:37:23.780793" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.779672" elapsed="0.001144"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.781176" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.780925" elapsed="0.000301"/>
+</kw>
+<arg>Reconfigured WiFi and restarted dhcpcd on 192.168.201.41</arg>
+<status status="PASS" start="2025-07-18T09:37:23.779314" elapsed="0.001969"/>
+</kw>
 <arg>${RPI2['ip']}</arg>
 <arg>${RPI2['user']}</arg>
 <arg>${RPI2['password']}</arg>
@@ -219,82 +768,591 @@
 <arg>${SSID}</arg>
 <arg>${PSK}</arg>
 <arg>${ENCRYPTION}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.744263" elapsed="0.000078"/>
+<status status="PASS" start="2025-07-18T09:37:23.032280" elapsed="0.749106"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Configured WiFi on RPi2</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.781541" elapsed="0.000109"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:23.782398" level="INFO">${now} = 2025-07-18 09:37:23</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.782181" elapsed="0.000241"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:23.782468" elapsed="0.000030"/>
+</return>
+<msg time="2025-07-18T09:37:23.782590" level="INFO">${timestamp} = 2025-07-18 09:37:23</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:23.781997" elapsed="0.000614"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:23.782927" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:23.782698" elapsed="0.000277"/>
+</kw>
 <arg>Configured WiFi on RPi2</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.744653" elapsed="0.000067"/>
+<status status="PASS" start="2025-07-18T09:37:23.781779" elapsed="0.001258"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<arg>15s</arg>
+<msg time="2025-07-18T09:37:25.783389" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-07-16T22:27:17.744984" elapsed="0.000063"/>
+<status status="PASS" start="2025-07-18T09:37:23.783147" elapsed="2.000361"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Waited 15s for WiFi to stabilize</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:25.783743" elapsed="0.000203"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:25.784854" level="INFO">${now} = 2025-07-18 09:37:25</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:25.784587" elapsed="0.000296"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:25.784944" elapsed="0.000041"/>
+</return>
+<msg time="2025-07-18T09:37:25.785094" level="INFO">${timestamp} = 2025-07-18 09:37:25</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:25.784384" elapsed="0.000732"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:25.785473" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:25.785214" elapsed="0.000309"/>
+</kw>
 <arg>Waited 15s for WiFi to stabilize</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.745351" elapsed="0.000068"/>
+<status status="PASS" start="2025-07-18T09:37:25.784123" elapsed="0.001461"/>
 </kw>
 <kw name="Ensure Iperf3 Installed" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:29.446822" level="INFO">${now} = 2025-07-18 09:37:29</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:29.446543" elapsed="0.000313"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:29.446921" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:29.447065" level="INFO">${timestamp} = 2025-07-18 09:37:29</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:29.446303" elapsed="0.000784"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:29.447531" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:29.447191" elapsed="0.000426"/>
+</kw>
+<arg>iperf3 already installed on 192.168.201.38</arg>
+<status status="PASS" start="2025-07-18T09:37:29.445796" elapsed="0.001897"/>
+</kw>
 <arg>${RPI1['ip']}</arg>
 <arg>${RPI1['user']}</arg>
 <arg>${RPI1['password']}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.745681" elapsed="0.000060"/>
+<status status="PASS" start="2025-07-18T09:37:25.785729" elapsed="3.662080"/>
 </kw>
 <kw name="Ensure Iperf3 Installed" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:30.126450" level="INFO">${now} = 2025-07-18 09:37:30</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.126166" elapsed="0.000317"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:30.126551" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:30.126887" level="INFO">${timestamp} = 2025-07-18 09:37:30</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:30.125920" elapsed="0.000996"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:30.127372" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.127043" elapsed="0.000386"/>
+</kw>
+<arg>iperf3 already installed on 192.168.201.41</arg>
+<status status="PASS" start="2025-07-18T09:37:30.125489" elapsed="0.002005"/>
+</kw>
 <arg>${RPI2['ip']}</arg>
 <arg>${RPI2['user']}</arg>
 <arg>${RPI2['password']}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.746035" elapsed="0.000055"/>
+<status status="PASS" start="2025-07-18T09:37:29.447956" elapsed="0.679648"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:30.128544" level="INFO">${now} = 2025-07-18 09:37:30</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.128282" elapsed="0.000292"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:30.128632" elapsed="0.000037"/>
+</return>
+<msg time="2025-07-18T09:37:30.128767" level="INFO">${timestamp} = 2025-07-18 09:37:30</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:30.128059" elapsed="0.000739"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:30.129226" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.128914" elapsed="0.000364"/>
+</kw>
 <arg>iperf3 installed on both RPis</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.746353" elapsed="0.000062"/>
+<status status="PASS" start="2025-07-18T09:37:30.127803" elapsed="0.001537"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Capturing baseline system stats from OpenWRT</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.129477" elapsed="0.000113"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:30.131213" level="INFO">${now} = 2025-07-18 09:37:30</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.130908" elapsed="0.000345"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:30.131315" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:30.131462" level="INFO">${timestamp} = 2025-07-18 09:37:30</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:30.130645" elapsed="0.000839"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:30.131859" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.131581" elapsed="0.000329"/>
+</kw>
 <arg>Capturing baseline system stats from OpenWRT</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.746678" elapsed="0.000062"/>
+<status status="PASS" start="2025-07-18T09:37:30.129724" elapsed="0.002245"/>
 </kw>
 <kw name="Capture Baseline System Stats" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:30.134205" level="INFO">${now} = 2025-07-18 09:37:30</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.133813" elapsed="0.000440"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:30.134355" elapsed="0.000063"/>
+</return>
+<msg time="2025-07-18T09:37:30.134589" level="INFO">${timestamp} = 2025-07-18 09:37:30</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:30.133519" elapsed="0.001110"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:30.135274" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.134828" elapsed="0.000516"/>
+</kw>
+<arg>Capturing baseline system stats</arg>
+<status status="PASS" start="2025-07-18T09:37:30.133167" elapsed="0.002252"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:30.490059" level="INFO">${now} = 2025-07-18 09:37:30</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.489779" elapsed="0.000313"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:30.490157" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-18T09:37:30.490310" level="INFO">${timestamp} = 2025-07-18 09:37:30</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:30.489559" elapsed="0.000772"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:30.490774" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.490435" elapsed="0.000410"/>
+</kw>
+<arg>
+$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159408     3639916         364      107444     3686292
+Swap:             0           0           0
+
+$ cat /proc/interrupts
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926431    2998047    2812437    2749053     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     380982          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12677          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5639          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5858          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6474     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+ 46:         14          0          0          0     GICv2  86 Level     ttyS0
+ 48:          0          0          0          0     GICv2  98 Level     gpio-cascade
+ 49:          0          0          0          0     GICv2  99 Level     gpio-cascade
+ 50:          0          0          0          0     GICv2 100 Level     gpio-cascade
+ 51:          0          0          0          0     GICv2 166 Level     gpio-cascade
+ 52:          0          0          0          0     GICv2 115 Level     2ad0000.watchdog
+ 53:          0          0          0          0     GICv2 135 Level     eDMA
+ 54:          0          0          0          0     GICv2  92 Level     xhci-hcd:usb1
+ 55:          0          0          0          0     GICv2  93 Level     xhci-hcd:usb3
+ 56:          0          0          0          0     GICv2  95 Level     xhci-hcd:usb5
+ 79:          0          0          0          0     GICv2 118 Level     29d0000.timer
+ 80:          0          0          0          0     GICv2  76 Level     fman, ptp_qoriq
+ 81:          0          0          0          0     GICv2 152 Level     PCIe PME, aerdrv
+ 82:          0          0          0          0     GICv2 186 Level     PCIe PME, aerdrv
+ 83:        898          0          0          0     GICv2 103 Level     1710000.jr
+ 84:          0          0          0          0     GICv2 104 Level     1720000.jr
+ 85:          0          0          0          0     GICv2 105 Level     1730000.jr
+ 86:    1909628          0          0          0       MSI 134742016 Edge      ath10k_pci
+IPI0:    117773     130483     122833     248766       Rescheduling interrupts
+IPI1:   2425329    3066383    2752468    2577537       Function call interrupts
+IPI2:         0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0       CPU stop (for crash dump) interrupts
+IPI4:         0          0          0          0       Timer broadcast interrupts
+IPI5:    116223     108792      78555      76252       IRQ work interrupts
+IPI6:         0          0          0          0       CPU wake-up interrupts
+Err:          0
+
+$ top -bn1 | head -20
+Mem: 266856K used, 3639912K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   4% sys   0% nic  95% idle   0% io   0% irq   0% sirq
+Load average: 0.22 0.12 0.09 2/152 29703
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4697     1 network  S    16344   0%   2% /usr/sbin/ldpd -d -F traditional -A 127.0.0.1
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+ 4632     1 network  S    24472   1%   0% /usr/sbin/zebra -d -F traditional -A 127.0.0.1 -s 90000000
+ 4640     1 network  S    21664   1%   0% /usr/sbin/mgmtd -d -F traditional -A 127.0.0.1
+ 4673     1 network  S    19432   0%   0% /usr/sbin/pimd -d -F traditional -A 127.0.0.1
+ 4655     1 network  S    18988   0%   0% /usr/sbin/ospfd -d -F traditional -A 127.0.0.1
+ 4667     1 network  S    18772   0%   0% /usr/sbin/isisd -d -F traditional -A 127.0.0.1
+ 4661     1 network  S    18544   0%   0% /usr/sbin/ospf6d -d -F traditional -A ::1
+ 4710     1 network  S    15992   0%   0% /usr/sbin/bfdd -d -F traditional -A 127.0.0.1
+ 4704     1 network  S    15760   0%   0% /usr/sbin/staticd -d -F traditional -A 127.0.0.1
+ 4696     1 network  S    15724   0%   0% /usr/sbin/ldpd -E -u network -g network
+ 4695     1 network  S    15700   0%   0% /usr/sbin/ldpd -L -u network -g network
+ 4581     1 root     S    13792   0%   0% /usr/sbin/watchfrr -d -F traditional zebra mgmtd bgpd ospfd ospf6d isisd pimd ldpd staticd bfdd
+ 3332  3325 network  S     4516   0%   0% /usr/sbin/hostapd -s -g /var/run/hostapd/global
+ 3333  3326 network  S     4220   0%   0% /usr/sbin/wpa_supplicant -n -s -g /var/run/wpa_supplicant/global
+ 3015     1 root     S     3732   0%   0% /sbin/rpcd -s /var/run/ubus/ubus.sock -t 30
+</arg>
+<status status="PASS" start="2025-07-18T09:37:30.489216" elapsed="0.001695"/>
+</kw>
 <arg>${OPENWRT['ip']}</arg>
 <arg>${OPENWRT['user']}</arg>
 <arg>${OPENWRT['password']}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.747033" elapsed="0.000085"/>
+<status status="PASS" start="2025-07-18T09:37:30.132094" elapsed="0.627051"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting iperf3 servers</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.759540" elapsed="0.000289"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:30.761137" level="INFO">${now} = 2025-07-18 09:37:30</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.760885" elapsed="0.000280"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:30.761221" elapsed="0.000038"/>
+</return>
+<msg time="2025-07-18T09:37:30.761414" level="INFO">${timestamp} = 2025-07-18 09:37:30</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:30.760644" elapsed="0.000794"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:30.761819" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:30.761540" elapsed="0.000333"/>
+</kw>
 <arg>Starting iperf3 servers</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.747552" elapsed="0.000096"/>
+<status status="PASS" start="2025-07-18T09:37:30.760124" elapsed="0.001809"/>
 </kw>
 <kw name="Start Iperf Server" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:31.144535" level="INFO">${now} = 2025-07-18 09:37:31</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.144236" elapsed="0.000333"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:31.144637" elapsed="0.000041"/>
+</return>
+<msg time="2025-07-18T09:37:31.144793" level="INFO">${timestamp} = 2025-07-18 09:37:31</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:31.143988" elapsed="0.000886"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:31.145273" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.145000" elapsed="0.000332"/>
+</kw>
+<arg>Started iperf3 server on 192.168.201.38:5201</arg>
+<status status="PASS" start="2025-07-18T09:37:31.143532" elapsed="0.001872"/>
+</kw>
 <arg>${RPI1['ip']}</arg>
 <arg>${RPI1['user']}</arg>
 <arg>${RPI1['password']}</arg>
 <arg>5201</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.748052" elapsed="0.000093"/>
+<status status="PASS" start="2025-07-18T09:37:30.762069" elapsed="0.383501"/>
 </kw>
 <kw name="Start Iperf Server" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:31.853467" level="INFO">${now} = 2025-07-18 09:37:31</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.853190" elapsed="0.000309"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:31.853565" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:31.853709" level="INFO">${timestamp} = 2025-07-18 09:37:31</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:31.852958" elapsed="0.000774"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:31.854100" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.853842" elapsed="0.000312"/>
+</kw>
+<arg>Started iperf3 server on 192.168.201.41:5202</arg>
+<status status="PASS" start="2025-07-18T09:37:31.852588" elapsed="0.001628"/>
+</kw>
 <arg>${RPI2['ip']}</arg>
 <arg>${RPI2['user']}</arg>
 <arg>${RPI2['password']}</arg>
 <arg>5202</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.748584" elapsed="0.000070"/>
+<status status="PASS" start="2025-07-18T09:37:31.145748" elapsed="0.708590"/>
 </kw>
-<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Log To Console" owner="BuiltIn">
 <arg>iperf3 servers started</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.748977" elapsed="0.000068"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.854478" elapsed="0.000108"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:31.855346" level="INFO">${now} = 2025-07-18 09:37:31</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.855122" elapsed="0.000260"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:31.855434" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-18T09:37:31.855564" level="INFO">${timestamp} = 2025-07-18 09:37:31</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:31.854933" elapsed="0.000652"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:31.855908" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.855675" elapsed="0.000279"/>
+</kw>
+<arg>iperf3 servers started</arg>
+<status status="PASS" start="2025-07-18T09:37:31.854713" elapsed="0.001296"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Starting resource monitoring on OpenWRT</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.749382" elapsed="0.000069"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.856124" elapsed="0.000101"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:31.856935" level="INFO">${now} = 2025-07-18 09:37:31</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.856730" elapsed="0.000229"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:31.857006" elapsed="0.000030"/>
+</return>
+<msg time="2025-07-18T09:37:31.857126" level="INFO">${timestamp} = 2025-07-18 09:37:31</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:31.856547" elapsed="0.000600"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:31.857577" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.857243" elapsed="0.000389"/>
+</kw>
+<arg>Starting resource monitoring on OpenWRT</arg>
+<status status="PASS" start="2025-07-18T09:37:31.856346" elapsed="0.001351"/>
 </kw>
 <kw name="Start Monitoring During Iperf" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:31.859685" level="INFO">${now} = 2025-07-18 09:37:31</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.859365" elapsed="0.000354"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:31.859798" elapsed="0.000048"/>
+</return>
+<msg time="2025-07-18T09:37:31.859974" level="INFO">${timestamp} = 2025-07-18 09:37:31</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:31.859124" elapsed="0.000884"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:31.860678" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.860163" elapsed="0.000576"/>
+</kw>
+<arg>Starting monitoring during iperf</arg>
+<status status="PASS" start="2025-07-18T09:37:31.858843" elapsed="0.002002"/>
+</kw>
 <arg>${OPENWRT['ip']}</arg>
 <arg>${OPENWRT['user']}</arg>
 <arg>${OPENWRT['password']}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.749718" elapsed="0.000062"/>
+<status status="PASS" start="2025-07-18T09:37:31.857833" elapsed="0.003254"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Starting bidirectional iperf3 clients</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.861267" elapsed="0.000162"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:31.862396" level="INFO">${now} = 2025-07-18 09:37:31</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.862157" elapsed="0.000266"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:31.862474" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-18T09:37:31.862610" level="INFO">${timestamp} = 2025-07-18 09:37:31</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:31.861941" elapsed="0.000691"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:31.863274" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:31.862726" elapsed="0.000634"/>
+</kw>
 <arg>Starting bidirectional iperf3 clients</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.750077" elapsed="0.000073"/>
+<status status="PASS" start="2025-07-18T09:37:31.861627" elapsed="0.001827"/>
 </kw>
 <kw name="Start Iperf Client Parallel" owner="wifi_lan">
 <arg>${RPI1['ip']}</arg>
@@ -304,7 +1362,7 @@
 <arg>${DURATION}</arg>
 <arg>${BANDWIDTH}</arg>
 <arg>5202</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.750410" elapsed="0.000062"/>
+<status status="PASS" start="2025-07-18T09:37:31.863640" elapsed="0.002176"/>
 </kw>
 <kw name="Start Iperf Client Parallel" owner="wifi_lan">
 <arg>${RPI2['ip']}</arg>
@@ -314,50 +1372,1561 @@
 <arg>${DURATION}</arg>
 <arg>${BANDWIDTH}</arg>
 <arg>5201</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.750758" elapsed="0.000061"/>
+<status status="PASS" start="2025-07-18T09:37:31.866032" elapsed="0.002975"/>
 </kw>
 <kw name="Wait For All Iperf Clients" owner="wifi_lan">
-<status status="NOT RUN" start="2025-07-16T22:27:17.751104" elapsed="0.000060"/>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:32.140442" level="INFO">${now} = 2025-07-18 09:37:32</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.139806" elapsed="0.000710"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:32.140666" elapsed="0.000092"/>
+</return>
+<msg time="2025-07-18T09:37:32.141053" level="INFO">${timestamp} = 2025-07-18 09:37:32</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:32.139175" elapsed="0.001938"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.141365" elapsed="0.001829"/>
+</kw>
+<arg>Running iperf3 client from 192.168.201.38 to 192.168.201.41:5202 in background</arg>
+<status status="PASS" start="2025-07-18T09:37:32.138303" elapsed="0.005120"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:32.145164" level="INFO">${now} = 2025-07-18 09:37:32</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.144902" elapsed="0.000294"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:32.145258" elapsed="0.000041"/>
+</return>
+<msg time="2025-07-18T09:37:32.145401" level="INFO">${timestamp} = 2025-07-18 09:37:32</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:32.144655" elapsed="0.000768"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:32.147023" level="INFO">${now} = 2025-07-18 09:37:32</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.146771" elapsed="0.000282"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:32.147108" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-18T09:37:32.147260" level="INFO">${timestamp} = 2025-07-18 09:37:32</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:32.146433" elapsed="0.000848"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.145521" elapsed="0.002243"/>
+</kw>
+<arg>[2025-07-18 09:37:32] ➜ Started iperf3 client from 192.168.201.38 to 192.168.201.41:5202</arg>
+<status status="PASS" start="2025-07-18T09:37:32.144132" elapsed="0.003706"/>
+</kw>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.147394" elapsed="0.000744"/>
+</kw>
+<arg>Running iperf3 client from 192.168.201.41 to 192.168.201.38:5201 in background</arg>
+<status status="PASS" start="2025-07-18T09:37:32.146132" elapsed="0.002083"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:32.149049" level="INFO">${now} = 2025-07-18 09:37:32</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.148824" elapsed="0.000252"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:32.149126" elapsed="0.000035"/>
+</return>
+<msg time="2025-07-18T09:37:32.149256" level="INFO">${timestamp} = 2025-07-18 09:37:32</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:32.148614" elapsed="0.000663"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.149365" elapsed="0.000232"/>
+</kw>
+<arg>[2025-07-18 09:37:32] ➜ Started iperf3 client from 192.168.201.41 to 192.168.201.38:5201</arg>
+<status status="PASS" start="2025-07-18T09:37:32.148383" elapsed="0.001277"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:32.190526" level="INFO">${now} = 2025-07-18 09:37:32</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.190148" elapsed="0.000423"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:32.190666" elapsed="0.000053"/>
+</return>
+<msg time="2025-07-18T09:37:32.190868" level="INFO">${timestamp} = 2025-07-18 09:37:32</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:32.189824" elapsed="0.001075"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:32.191049" elapsed="0.000389"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:31] === CPU &amp; Memory ===
+Mem: 267076K used, 3639692K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   4% sys   0% nic  95% idle   0% io   0% irq   0% sirq
+Load average: 0.22 0.12 0.09 2/152 29717
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4661     1 network  S    18544   0%   2% /usr/sbin/ospf6d -d -F traditional -A ::1
+
+[MONITORING - 2025-07-18 09:37:31] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159608     3639692         364      107468     3686080
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:31] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926566    2998204    2812581    2749180     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     380982          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12716          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5686          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5879          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6495     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:32.189304" elapsed="0.002225"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:33.419862" level="INFO">${now} = 2025-07-18 09:37:33</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:33.419490" elapsed="0.000410"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:33.419986" elapsed="0.000056"/>
+</return>
+<msg time="2025-07-18T09:37:33.420195" level="INFO">${timestamp} = 2025-07-18 09:37:33</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:33.419256" elapsed="0.000971"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:33.420376" elapsed="0.000787"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:33] === CPU &amp; Memory ===
+Mem: 267300K used, 3639468K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   7% sys   0% nic  92% idle   0% io   0% irq   0% sirq
+Load average: 0.22 0.12 0.09 2/152 29728
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4655     1 network  S    18988   0%   2% /usr/sbin/ospfd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:33] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159836     3639468         364      107464     3685856
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:33] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926657    2998301    2812654    2749252     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381018          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12740          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5695          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5886          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6503     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:33.418856" elapsed="0.002608"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:34.639723" level="INFO">${now} = 2025-07-18 09:37:34</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:34.639390" elapsed="0.000367"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:34.639832" elapsed="0.000046"/>
+</return>
+<msg time="2025-07-18T09:37:34.640017" level="INFO">${timestamp} = 2025-07-18 09:37:34</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:34.639150" elapsed="0.000900"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:34.640196" elapsed="0.000667"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:34] === CPU &amp; Memory ===
+Mem: 267048K used, 3639720K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   2% usr   0% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.22 0.12 0.09 2/152 29738
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:34] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159580     3639720         364      107468     3686108
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:34] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926746    2998400    2812722    2749325     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381018          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12760          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5703          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5894          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6512     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:34.638788" elapsed="0.002167"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:35.872114" level="INFO">${now} = 2025-07-18 09:37:35</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:35.871854" elapsed="0.000290"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:35.872206" elapsed="0.000036"/>
+</return>
+<msg time="2025-07-18T09:37:35.872336" level="INFO">${timestamp} = 2025-07-18 09:37:35</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:35.871621" elapsed="0.000735"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:35.872446" elapsed="0.000370"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:35] === CPU &amp; Memory ===
+Mem: 267020K used, 3639748K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.21 0.11 0.09 2/152 29749
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:35] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159552     3639748         364      107468     3686136
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:35] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926827    2998498    2812795    2749407     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381018          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12782          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5712          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5901          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6519     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:35.870823" elapsed="0.002188"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:37.089645" level="INFO">${now} = 2025-07-18 09:37:37</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:37.089359" elapsed="0.000319"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:37.089743" elapsed="0.000043"/>
+</return>
+<msg time="2025-07-18T09:37:37.089891" level="INFO">${timestamp} = 2025-07-18 09:37:37</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:37.089125" elapsed="0.000788"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:37.090019" elapsed="0.000485"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:36] === CPU &amp; Memory ===
+Mem: 266516K used, 3640252K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.21 0.11 0.09 2/152 29760
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:36] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159052     3640252         364      107464     3686640
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:36] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926902    2998604    2812875    2749493     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381018          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12806          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5719          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5909          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6526     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:37.088767" elapsed="0.001820"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:38.319610" level="INFO">${now} = 2025-07-18 09:37:38</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:38.319315" elapsed="0.000341"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:38.319762" elapsed="0.000081"/>
+</return>
+<msg time="2025-07-18T09:37:38.319980" level="INFO">${timestamp} = 2025-07-18 09:37:38</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:38.319054" elapsed="0.000950"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:38.320114" elapsed="0.000450"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:38] === CPU &amp; Memory ===
+Mem: 267272K used, 3639496K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.21 0.11 0.09 2/152 29771
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:38] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159808     3639496         364      107464     3685884
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:38] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2926988    2998697    2812947    2749565     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381054          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12825          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5727          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5917          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6535     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:38.318693" elapsed="0.001945"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:39.549677" level="INFO">${now} = 2025-07-18 09:37:39</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:39.549405" elapsed="0.000304"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:39.549773" elapsed="0.000059"/>
+</return>
+<msg time="2025-07-18T09:37:39.549945" level="INFO">${timestamp} = 2025-07-18 09:37:39</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:39.549173" elapsed="0.000796"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:39.550069" elapsed="0.000325"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:39] === CPU &amp; Memory ===
+Mem: 266764K used, 3640004K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   2% usr   2% sys   0% nic  95% idle   0% io   0% irq   0% sirq
+Load average: 0.21 0.11 0.09 2/152 29782
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:39] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159052     3640252         364      107464     3686640
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:39] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927071    2998797    2813026    2749639     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381054          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12848          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5734          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5925          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6543     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:39.548761" elapsed="0.001704"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:40.780093" level="INFO">${now} = 2025-07-18 09:37:40</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:40.779800" elapsed="0.000324"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:40.780188" elapsed="0.000041"/>
+</return>
+<msg time="2025-07-18T09:37:40.780333" level="INFO">${timestamp} = 2025-07-18 09:37:40</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:40.779379" elapsed="0.000990"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:40.780471" elapsed="0.000364"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:40] === CPU &amp; Memory ===
+Mem: 265224K used, 3641544K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   4% usr   2% sys   0% nic  92% idle   0% io   0% irq   0% sirq
+Load average: 0.19 0.11 0.09 3/153 29793
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24924   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:40] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      154484     3644824         364      107460     3691208
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:40] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927163    2998898    2813111    2749719     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381054          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12869          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5742          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5933          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6551     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:40.778988" elapsed="0.001918"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:41.999976" level="INFO">${now} = 2025-07-18 09:37:41</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:41.999665" elapsed="0.000350"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:42.000093" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-18T09:37:42.000244" level="INFO">${timestamp} = 2025-07-18 09:37:41</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:41.999447" elapsed="0.000819"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:42.000375" elapsed="0.000401"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:41] === CPU &amp; Memory ===
+Mem: 261944K used, 3644824K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.19 0.11 0.09 2/152 29803
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:41] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      155992     3643312         364      107464     3689700
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:41] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927251    2998976    2813201    2749792     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381054          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12893          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5749          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5940          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6558     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:41.999087" elapsed="0.001771"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:43.232429" level="INFO">${now} = 2025-07-18 09:37:43</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:43.232036" elapsed="0.000439"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:43.232572" elapsed="0.000075"/>
+</return>
+<msg time="2025-07-18T09:37:43.232812" level="INFO">${timestamp} = 2025-07-18 09:37:43</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:43.231663" elapsed="0.001183"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:43.232998" elapsed="0.000651"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:43] === CPU &amp; Memory ===
+Mem: 266984K used, 3639784K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  95% idle   0% io   0% irq   2% sirq
+Load average: 0.19 0.11 0.09 2/152 29814
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:43] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159520     3639784         364      107464     3686172
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:43] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927341    2999063    2813271    2749883     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381086          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12913          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5757          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5948          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6566     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:43.230754" elapsed="0.003006"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:44.449732" level="INFO">${now} = 2025-07-18 09:37:44</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:44.449474" elapsed="0.000290"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:44.449833" elapsed="0.000039"/>
+</return>
+<msg time="2025-07-18T09:37:44.449974" level="INFO">${timestamp} = 2025-07-18 09:37:44</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:44.449241" elapsed="0.000754"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:44.450096" elapsed="0.000428"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:44] === CPU &amp; Memory ===
+Mem: 266732K used, 3640036K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.19 0.11 0.09 2/152 29825
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:44] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159268     3640036         364      107464     3686424
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:44] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927431    2999154    2813342    2749951     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381086          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12937          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5766          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5955          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6573     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:44.448874" elapsed="0.001725"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:45.670356" level="INFO">${now} = 2025-07-18 09:37:45</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:45.669974" elapsed="0.000423"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:45.670485" elapsed="0.000056"/>
+</return>
+<msg time="2025-07-18T09:37:45.670683" level="INFO">${timestamp} = 2025-07-18 09:37:45</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:45.669582" elapsed="0.001127"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:45.670874" elapsed="0.001188"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:45] === CPU &amp; Memory ===
+Mem: 266432K used, 3640336K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   7% sys   0% nic  92% idle   0% io   0% irq   0% sirq
+Load average: 0.17 0.11 0.09 2/152 29850
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:45] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      158968     3640336         364      107464     3686724
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:45] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927514    2999247    2813415    2750025     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381086          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12962          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5778          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5964          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6582     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:45.668998" elapsed="0.003209"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:46.899773" level="INFO">${now} = 2025-07-18 09:37:46</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:46.899488" elapsed="0.000326"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:46.899882" elapsed="0.000055"/>
+</return>
+<msg time="2025-07-18T09:37:46.900055" level="INFO">${timestamp} = 2025-07-18 09:37:46</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:46.899237" elapsed="0.000841"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:46.900196" elapsed="0.000503"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:46] === CPU &amp; Memory ===
+Mem: 266908K used, 3639860K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   7% usr   0% sys   0% nic  92% idle   0% io   0% irq   0% sirq
+Load average: 0.17 0.11 0.09 2/152 29861
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:46] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159444     3639860         364      107464     3686248
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:46] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927602    2999332    2813507    2750127     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381086          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      12982          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5786          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5972          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6590     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:46.898862" elapsed="0.001941"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:48.129777" level="INFO">${now} = 2025-07-18 09:37:48</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:48.129510" elapsed="0.000308"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:48.129884" elapsed="0.000042"/>
+</return>
+<msg time="2025-07-18T09:37:48.130031" level="INFO">${timestamp} = 2025-07-18 09:37:48</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:48.129283" elapsed="0.000769"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:48.130159" elapsed="0.000556"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:47] === CPU &amp; Memory ===
+Mem: 266628K used, 3640140K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   2% usr   0% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.17 0.11 0.09 2/152 29871
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:47] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159416     3639888         364      107464     3686276
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:47] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927691    2999411    2813583    2750231     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381118          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      13005          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5793          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5979          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6597     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:48.128926" elapsed="0.001898"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:49.352471" level="INFO">${now} = 2025-07-18 09:37:49</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:49.352184" elapsed="0.000320"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:49.352573" elapsed="0.000044"/>
+</return>
+<msg time="2025-07-18T09:37:49.352725" level="INFO">${timestamp} = 2025-07-18 09:37:49</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:49.351937" elapsed="0.000810"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:49.352861" elapsed="0.000586"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:49] === CPU &amp; Memory ===
+Mem: 266628K used, 3640140K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.17 0.11 0.09 2/152 29882
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:49] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159416     3639888         364      107464     3686276
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:49] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927776    2999487    2813658    2750324     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381118          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      13025          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5801          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5987          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6605     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:49.351563" elapsed="0.001995"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:50.570308" level="INFO">${now} = 2025-07-18 09:37:50</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:50.570003" elapsed="0.000340"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:50.570414" elapsed="0.000045"/>
+</return>
+<msg time="2025-07-18T09:37:50.570574" level="INFO">${timestamp} = 2025-07-18 09:37:50</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:50.569694" elapsed="0.000903"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:50.570702" elapsed="0.000391"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:50] === CPU &amp; Memory ===
+Mem: 266376K used, 3640392K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   0% sys   0% nic 100% idle   0% io   0% irq   0% sirq
+Load average: 0.16 0.11 0.09 2/152 29893
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:50] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      158912     3640392         364      107464     3686780
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:50] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927873    2999574    2813735    2750416     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381118          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      13049          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5808          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       5994          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6612     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:50.569127" elapsed="0.002045"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:51.800169" level="INFO">${now} = 2025-07-18 09:37:51</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:51.799869" elapsed="0.000334"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:51.800271" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:51.800416" level="INFO">${timestamp} = 2025-07-18 09:37:51</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:51.799453" elapsed="0.000984"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:51.800538" elapsed="0.000436"/>
+</kw>
+<arg>
+[MONITORING - 2025-07-18 09:37:51] === CPU &amp; Memory ===
+Mem: 266348K used, 3640420K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   2% usr   4% sys   0% nic  93% idle   0% io   0% irq   0% sirq
+Load average: 0.16 0.11 0.09 2/152 29904
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+
+[MONITORING - 2025-07-18 09:37:51] === Free Memory ===
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      158884     3640420         364      107464     3686808
+Swap:             0           0           0
+
+[MONITORING - 2025-07-18 09:37:51] === Interrupts ===
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2927962    2999658    2813812    2750505     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381118          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      13069          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5816          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       6002          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6620     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+</arg>
+<status status="PASS" start="2025-07-18T09:37:51.799079" elapsed="0.001971"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.362677" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.362398" elapsed="0.000311"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.362775" elapsed="0.000051"/>
+</return>
+<msg time="2025-07-18T09:37:52.362936" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.362155" elapsed="0.000803"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.363064" elapsed="0.000352"/>
+</kw>
+<arg>[iperf3 OUTPUT from 192.168.201.38 ➜ 192.168.201.41]
+Connecting to host 192.168.201.41, port 5202
+[  5] local 192.168.201.38 port 47024 connected to 192.168.201.41 port 5202
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  53.6 MBytes   450 Mbits/sec    0    157 KBytes       
+[  5]   1.00-2.00   sec  53.7 MBytes   451 Mbits/sec    0    195 KBytes       
+[  5]   2.00-3.00   sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+[  5]   3.00-4.00   sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+[  5]   4.00-5.00   sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+[  5]   5.00-6.00   sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+[  5]   6.00-7.00   sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+[  5]   7.00-8.00   sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+[  5]   8.00-9.00   sec  53.8 MBytes   451 Mbits/sec    0    195 KBytes       
+[  5]   9.00-10.00  sec  53.6 MBytes   450 Mbits/sec    0    195 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec   536 MBytes   450 Mbits/sec    0             sender
+[  5]   0.00-20.05  sec   536 MBytes   224 Mbits/sec                  receiver
+
+iperf Done.
+</arg>
+<status status="PASS" start="2025-07-18T09:37:52.361709" elapsed="0.001825"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.469583" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.469302" elapsed="0.000314"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.469683" elapsed="0.000040"/>
+</return>
+<msg time="2025-07-18T09:37:52.469838" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.469080" elapsed="0.000781"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.469966" elapsed="0.000359"/>
+</kw>
+<arg>[iperf3 OUTPUT from 192.168.201.41 ➜ 192.168.201.38]
+Connecting to host 192.168.201.38, port 5201
+[  5] local 192.168.201.41 port 38772 connected to 192.168.201.38 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  53.6 MBytes   450 Mbits/sec    0    139 KBytes       
+[  5]   1.00-2.00   sec  53.8 MBytes   451 Mbits/sec    0    147 KBytes       
+[  5]   2.00-3.00   sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+[  5]   3.00-4.00   sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+[  5]   4.00-5.00   sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+[  5]   5.00-6.00   sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+[  5]   6.00-7.00   sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+[  5]   7.00-8.00   sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+[  5]   8.00-9.00   sec  53.8 MBytes   451 Mbits/sec    0    147 KBytes       
+[  5]   9.00-10.00  sec  53.6 MBytes   450 Mbits/sec    0    147 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec   536 MBytes   450 Mbits/sec    0             sender
+[  5]   0.00-20.05  sec   536 MBytes   224 Mbits/sec                  receiver
+
+iperf Done.
+</arg>
+<status status="PASS" start="2025-07-18T09:37:52.468709" elapsed="0.001691"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.471365" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.471134" elapsed="0.000261"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.471459" elapsed="0.000034"/>
+</return>
+<msg time="2025-07-18T09:37:52.471587" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.470922" elapsed="0.000687"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:52.471934" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.471699" elapsed="0.000339"/>
+</kw>
 <arg>All iperf3 clients finished</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.751443" elapsed="0.000102"/>
+<status status="PASS" start="2025-07-18T09:37:52.470654" elapsed="0.001473"/>
+</kw>
+<status status="PASS" start="2025-07-18T09:37:31.870509" elapsed="20.601689"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>All iperf3 clients finished</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.472316" elapsed="0.000103"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.473250" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.472995" elapsed="0.000286"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.473339" elapsed="0.000038"/>
+</return>
+<msg time="2025-07-18T09:37:52.473480" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.472764" elapsed="0.000740"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:52.473892" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.473601" elapsed="0.000373"/>
+</kw>
+<arg>All iperf3 clients finished</arg>
+<status status="PASS" start="2025-07-18T09:37:52.472542" elapsed="0.001514"/>
 </kw>
 <kw name="Stop Monitoring" owner="wifi_lan">
-<status status="NOT RUN" start="2025-07-16T22:27:17.751933" elapsed="0.000102"/>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.803587" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.803291" elapsed="0.000327"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.803685" elapsed="0.000041"/>
+</return>
+<msg time="2025-07-18T09:37:52.803851" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.803030" elapsed="0.000844"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.803982" elapsed="0.000381"/>
+</kw>
+<arg>✅ Monitoring finished after duration</arg>
+<status status="PASS" start="2025-07-18T09:37:52.802587" elapsed="0.001849"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.805402" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.805172" elapsed="0.000260"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.805487" elapsed="0.000032"/>
+</return>
+<msg time="2025-07-18T09:37:52.805612" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.804944" elapsed="0.000689"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:52.806022" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.805723" elapsed="0.000376"/>
+</kw>
+<arg> Monitoring stopped</arg>
+<status status="PASS" start="2025-07-18T09:37:52.804658" elapsed="0.001527"/>
+</kw>
+<status status="PASS" start="2025-07-18T09:37:52.474201" elapsed="0.332078"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Monitoring stopped</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.752424" elapsed="0.000071"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.806465" elapsed="0.000195"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.807895" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.807496" elapsed="0.000450"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.808046" elapsed="0.000075"/>
+</return>
+<msg time="2025-07-18T09:37:52.808398" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.807266" elapsed="0.001178"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:52.809182" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.808679" elapsed="0.000610"/>
+</kw>
+<arg>Monitoring stopped</arg>
+<status status="PASS" start="2025-07-18T09:37:52.806939" elapsed="0.002471"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
 <arg>Capturing post-test system stats</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.752786" elapsed="0.000069"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.809614" elapsed="0.000195"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.810731" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.810484" elapsed="0.000274"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.810823" elapsed="0.000042"/>
+</return>
+<msg time="2025-07-18T09:37:52.811040" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.810275" elapsed="0.000790"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:52.811441" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.811168" elapsed="0.000320"/>
+</kw>
+<arg>Capturing post-test system stats</arg>
+<status status="PASS" start="2025-07-18T09:37:52.809995" elapsed="0.001551"/>
 </kw>
 <kw name="Capture Post Test System Stats" owner="wifi_lan">
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:52.813524" level="INFO">${now} = 2025-07-18 09:37:52</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.813291" elapsed="0.000260"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:52.813608" elapsed="0.000038"/>
+</return>
+<msg time="2025-07-18T09:37:52.813768" level="INFO">${timestamp} = 2025-07-18 09:37:52</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:52.813082" elapsed="0.000725"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:52.814388" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:52.814029" elapsed="0.000435"/>
+</kw>
+<arg>Capturing post-test system stats</arg>
+<status status="PASS" start="2025-07-18T09:37:52.812637" elapsed="0.001902"/>
+</kw>
+<kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:53.159724" level="INFO">${now} = 2025-07-18 09:37:53</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:53.159446" elapsed="0.000315"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:53.159853" elapsed="0.000043"/>
+</return>
+<msg time="2025-07-18T09:37:53.160013" level="INFO">${timestamp} = 2025-07-18 09:37:53</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:53.159219" elapsed="0.000818"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:53.160592" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:53.160170" elapsed="0.000502"/>
+</kw>
+<arg>
+$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:        3906768      159712     3639596         364      107460     3685980
+Swap:             0           0           0
+
+$ cat /proc/interrupts
+           CPU0       CPU1       CPU2       CPU3       
+ 11:    2928027    2999732    2813898    2750584     GICv2  30 Level     arch_timer
+ 19:         18          0          0          0     GICv2  75 Level     fsl-ifc
+ 20:          5          0          0          0     GICv2 131 Level     1550000.spi
+ 21:     381158          0          0          0     GICv2  94 Level     mmc0
+ 23:          0          0          0          0     GICv2  77 Level     bman-err, qman-err, fman-err
+ 24:      13082          0          0          0     GICv2 204 Level     QMan portal 0
+ 25:          0       5837          0          0     GICv2 206 Level     QMan portal 1
+ 26:          0          0       6010          0     GICv2 208 Level     QMan portal 2
+ 27:          0          0          0       6628     GICv2 210 Level     QMan portal 3
+ 34:          0          0          0          0     GICv2 205 Level     BMan portal 0
+ 35:          0          0          0          0     GICv2 207 Level     BMan portal 1
+ 36:          0          0          0          0     GICv2 209 Level     BMan portal 2
+ 37:          0          0          0          0     GICv2 211 Level     BMan portal 3
+ 45:        785          0          0          0     GICv2  88 Level     2180000.i2c
+ 46:         14          0          0          0     GICv2  86 Level     ttyS0
+ 48:          0          0          0          0     GICv2  98 Level     gpio-cascade
+ 49:          0          0          0          0     GICv2  99 Level     gpio-cascade
+ 50:          0          0          0          0     GICv2 100 Level     gpio-cascade
+ 51:          0          0          0          0     GICv2 166 Level     gpio-cascade
+ 52:          0          0          0          0     GICv2 115 Level     2ad0000.watchdog
+ 53:          0          0          0          0     GICv2 135 Level     eDMA
+ 54:          0          0          0          0     GICv2  92 Level     xhci-hcd:usb1
+ 55:          0          0          0          0     GICv2  93 Level     xhci-hcd:usb3
+ 56:          0          0          0          0     GICv2  95 Level     xhci-hcd:usb5
+ 79:          0          0          0          0     GICv2 118 Level     29d0000.timer
+ 80:          0          0          0          0     GICv2  76 Level     fman, ptp_qoriq
+ 81:          0          0          0          0     GICv2 152 Level     PCIe PME, aerdrv
+ 82:          0          0          0          0     GICv2 186 Level     PCIe PME, aerdrv
+ 83:        899          0          0          0     GICv2 103 Level     1710000.jr
+ 84:          0          0          0          0     GICv2 104 Level     1720000.jr
+ 85:          0          0          0          0     GICv2 105 Level     1730000.jr
+ 86:    1909797          0          0          0       MSI 134742016 Edge      ath10k_pci
+IPI0:    117833     130569     122891     248896       Rescheduling interrupts
+IPI1:   2426353    3067775    2753625    2578818       Function call interrupts
+IPI2:         0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0       CPU stop (for crash dump) interrupts
+IPI4:         0          0          0          0       Timer broadcast interrupts
+IPI5:    116311     108878      78617      76330       IRQ work interrupts
+IPI6:         0          0          0          0       CPU wake-up interrupts
+Err:          0
+
+$ top -bn1 | head -20
+Mem: 266800K used, 3639968K free, 364K shrd, 15968K buff, 75436K cached
+CPU:   0% usr   2% sys   0% nic  97% idle   0% io   0% irq   0% sirq
+Load average: 0.16 0.11 0.09 2/152 29918
+  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND
+ 4645     1 network  S    24880   1%   0% /usr/sbin/bgpd -d -F traditional -A 127.0.0.1
+ 4632     1 network  S    24472   1%   0% /usr/sbin/zebra -d -F traditional -A 127.0.0.1 -s 90000000
+ 4640     1 network  S    21664   1%   0% /usr/sbin/mgmtd -d -F traditional -A 127.0.0.1
+ 4673     1 network  S    19432   0%   0% /usr/sbin/pimd -d -F traditional -A 127.0.0.1
+ 4655     1 network  S    18988   0%   0% /usr/sbin/ospfd -d -F traditional -A 127.0.0.1
+ 4667     1 network  S    18772   0%   0% /usr/sbin/isisd -d -F traditional -A 127.0.0.1
+ 4661     1 network  S    18544   0%   0% /usr/sbin/ospf6d -d -F traditional -A ::1
+ 4697     1 network  S    16344   0%   0% /usr/sbin/ldpd -d -F traditional -A 127.0.0.1
+ 4710     1 network  S    15992   0%   0% /usr/sbin/bfdd -d -F traditional -A 127.0.0.1
+ 4704     1 network  S    15744   0%   0% /usr/sbin/staticd -d -F traditional -A 127.0.0.1
+ 4696     1 network  S    15724   0%   0% /usr/sbin/ldpd -E -u network -g network
+ 4695     1 network  S    15700   0%   0% /usr/sbin/ldpd -L -u network -g network
+ 4581     1 root     S    13792   0%   0% /usr/sbin/watchfrr -d -F traditional zebra mgmtd bgpd ospfd ospf6d isisd pimd ldpd staticd bfdd
+ 3332  3325 network  S     4516   0%   0% /usr/sbin/hostapd -s -g /var/run/hostapd/global
+ 3333  3326 network  S     4220   0%   0% /usr/sbin/wpa_supplicant -n -s -g /var/run/wpa_supplicant/global
+ 3015     1 root     S     3732   0%   0% /sbin/rpcd -s /var/run/ubus/ubus.sock -t 30
+</arg>
+<status status="PASS" start="2025-07-18T09:37:53.158863" elapsed="0.001891"/>
+</kw>
 <arg>${OPENWRT['ip']}</arg>
 <arg>${OPENWRT['user']}</arg>
 <arg>${OPENWRT['password']}</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.753125" elapsed="0.000146"/>
+<status status="PASS" start="2025-07-18T09:37:52.811695" elapsed="0.617625"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>==== Completed WiFi LAN RPi Performance Test ====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-18T09:37:53.429649" elapsed="0.000222"/>
 </kw>
 <kw name="Log Message To Custom File" owner="common_keywords">
+<kw name="Get Current Date" owner="common_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-07-18T09:37:53.430950" level="INFO">${now} = 2025-07-18 09:37:53</msg>
+<var>${now}</var>
+<arg>__import__('datetime').datetime.now().strftime('${result_format}')</arg>
+<arg>modules=datetime</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-07-18T09:37:53.430600" elapsed="0.000390"/>
+</kw>
+<return>
+<value>${now}</value>
+<status status="PASS" start="2025-07-18T09:37:53.431067" elapsed="0.000065"/>
+</return>
+<msg time="2025-07-18T09:37:53.431243" level="INFO">${timestamp} = 2025-07-18 09:37:53</msg>
+<var>${timestamp}</var>
+<arg>%Y-%m-%d %H:%M:%S</arg>
+<status status="PASS" start="2025-07-18T09:37:53.430356" elapsed="0.000908"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2025-07-18T09:37:53.431663" level="INFO" html="true">Appended to file '&lt;a href="file:///home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log"&gt;/home/kalyani/Desktop/Desktop/nokia/django-robot-spanidea/robot-framework-automation/logs/custom_log_20250718_093720.log&lt;/a&gt;'.</msg>
+<arg>${LOG_FILE}</arg>
+<arg>[INFO][${timestamp}] ${message}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2025-07-18T09:37:53.431382" elapsed="0.000335"/>
+</kw>
 <arg>==== Completed WiFi LAN RPi Performance Test ====</arg>
-<status status="NOT RUN" start="2025-07-16T22:27:17.753599" elapsed="0.000072"/>
+<status status="PASS" start="2025-07-18T09:37:53.430060" elapsed="0.001729"/>
 </kw>
 <tag>BB-INT-WWAN-001</tag>
-<status status="FAIL" start="2025-07-16T22:27:14.727999" elapsed="3.026204">TimeoutError: timed out</status>
+<status status="PASS" start="2025-07-18T09:37:20.609706" elapsed="32.822211"/>
 </test>
-<status status="FAIL" start="2025-07-16T22:27:14.540337" elapsed="3.214594"/>
+<status status="PASS" start="2025-07-18T09:37:20.403007" elapsed="33.029236"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">BB-INT-WWAN-001</stat>
+<stat pass="1" fail="0" skip="0">BB-INT-WWAN-001</stat>
 </tag>
 <suite>
-<stat name="Wifi Lan Rpi" id="s1" pass="0" fail="1" skip="0">Wifi Lan Rpi</stat>
+<stat name="Wifi Lan Rpi" id="s1" pass="1" fail="0" skip="0">Wifi Lan Rpi</stat>
 </suite>
 </statistics>
 <errors>
